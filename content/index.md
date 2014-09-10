@@ -23,10 +23,10 @@ A finite-state diagram is visual, it's easy to understand. Getting feed-back fro
 The models creates an abstraction layer between the test design and the implementing automation code. This is important when it comes to maintance. Remember that the test automation (code and design) will have as long life time expectancy as the system under test. The return of investment is higher, if the test design and automation code is easy to work with and maintain. That's why it's so important with a good abtraction layer between design and implementation.
 
 ## Quick startup guide
-*  [GraphWalker modelling syntax](/pico/docs/gw_model_syntax)
+* [GraphWalker modelling syntax](/pico/docs/gw_model_syntax)
 * Make quick Web test
 * Running the examples
-* Workflow using GraphWalker
+* [Workflow using GraphWalker](/pico/docs/workflow)
 
 ## How to get it?
 Either download the standalone jar file, or include it directly in you java project.
