@@ -7,7 +7,7 @@ Description: This description will go in the meta description tag
 
 It's a Model-Based testing tool built in Java. It reads models in the shape of finte-state diagrams, or directed graphs, and generate tests from the models, either offline or online.
 
-<img src="/pico/content/images/Login-small.png" alt="Smiley face" align="left">
+<img src="/pico/content/images/Login-small.png" alt="Model" align="left">
 
 #### *For the tester:*
 It's easy to design for test automation, even if you don't have any or little programming skills. The modelling syntax is very simple, and people can get started in less than an hour. The most common use cases for GraphWalker are automated end user acceptance tests, or any tests with :w
@@ -22,9 +22,9 @@ A finite-state diagram is visual, it's easy to understand. Getting feed-back fro
 #### *For whoever pays the bills:*
 The models creates an abstraction layer between the test design and the implementing automation code. This is important when it comes to maintance. Remember that the test automation (code and design) will have as long life time expectancy as the system under test. The return of investment is higher, if the test design and automation code is easy to work with and maintain. That's why it's so important with a good abtraction layer between design and implementation.
 
-## Quick startup guide
+## Some docs that you might wanna read
+* [A quick startup guide](/pico/docs/quick_startup_guide)
 * [GraphWalker modelling syntax](/pico/docs/gw_model_syntax)
-* Make quick Web test
 * Running the examples
 * [Workflow using GraphWalker](/pico/docs/workflow)
 
