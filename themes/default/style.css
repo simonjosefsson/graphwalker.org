@@ -101,6 +101,7 @@ body {
 	color: #444;
 	background: #fff;
 	-webkit-font-smoothing: antialiased;
+	line-height: 150%;
 }
 
 a, a:visited {
@@ -179,9 +180,11 @@ sup {
 
 code {
 	font-family: Courier, "Courier New", Monaco, Tahoma;
+	font-size: smaller;
 	background: #eee;
 	color: #333;
 	padding: 0px 2px;
+	line-height: 100%;
 }
 
 pre {
