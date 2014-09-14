@@ -25,27 +25,50 @@ From the command line, run:
 Move into the myProject folder, and test the project:
 ~~~
 %> cd myProject
-%> mvn org.graphwalker:graphwalker-maven-plugin:3.0.0-SNAPSHOT:test
+%> mvn org.graphwalker:graphwalker-maven-plugin:3.0.0-SNAPSHOT:generate-sources
 ~~~
 You now have a complete GraphWalker 3 project.
 
-That last command did a couple of special things.
+### Auto-generated sources
 
-* It generated an interface **SmallTest**, from the model **SmallTest.graphml**. Any time the model is changed, the interface will be automatically re-generated when the maven goal **org.graphwalker:graphwalker-maven-plugin:3.0.0-SNAPSHOT:test** is run. This helps the developer to keep the code in sync with the model(s). The requirement is that the graphml file needs to be in folder path, which is the same (package) path as for the java project, but under resource path instead.
-<img src="/pico/content/images/folderPaths.png" alt="Folder paths">
-* The test is itself is quite simple. When opened in the yEd editor, it will look like below.
+The maven command above generated an interface **SmallTest**, from the model **SmallTest.graphml**. This feature helps the developer to keep the code in sync with the model(s). The requirement is that the graphml file needs to be in folder path, which is the same (package) path as for the java project, but under resource path instead.
 
-<img src="/pico/content/images/SmallTest.png" alt="Small test model" height="30%" width="30%">
+<figure>
+  <img src="/pico/content/images/folderPaths.png" alt="Folder paths">
+  <figcaption>The source code layout after the auto source code generation is done.</figcaption>
+</figure>
 
-* The class **SomeSmallTest** implements the interface **SmallTest**. Remember that that interface is auto-generated, and it's in the maven created **target** folder. The complete path is **target/generated-sources/graphwalker/com/company/SmallTest.java**. Below are the two classes.
+<figure>
+  <img src="/pico/content/images/SmallTestInterface.png" alt="SmallTest Interface">
+  <figcaption>The auto-generated interface that is created from the model below. The complete path is <code>target/generated-sources/graphwalker/com/company/SmallTest.java</code></figcaption>
+</figure>
 
-<img src="/pico/content/images/SmallTestInterface.png" alt="SmallTest Interface">
-<img src="/pico/content/images/SomeSmallTestJava.png" alt="SomeSmallTest Class">
+### The model
+
+The test is itself is quite simple. When opened in the yEd editor, it will look like below.
+
+<figure>
+  <img src="/pico/content/images/SmallTest.png" alt="Small test model">
+  <figcaption>The model <strong>SmallTest.graphml</strong> that is used for this test.</figcaption>
+</figure>
+
+### The test automation code
+
+The class **SomeSmallTest** implements the interface **SmallTest**. The annotation <code>@GraphWalker(start="e_AnotherAction")</code> tells GraphWalker to start the test at the edge <code>e_AnotherAction</code>. The default path generator is the random generator with 100% vertex coverage.
+
+<figure>
+  <img src="/pico/content/images/SomeSmallTestJava.png" alt="SomeSmallTest Class">
+  <figcaption>The class <code>SomeSmallTest</code> that implements the test.</figcaption>
+</figure>
 
 
 ## Running the test
 When running the the test the output might look something like this:
 ~~~
+%> mvn org.graphwalker:graphwalker-maven-plugin:3.0.0-SNAPSHOT:test
+:
+:
+:
 [INFO] ------------------------------------------------------------------------
 [INFO]   _____             _   _ _ _     _ _                                   
 [INFO]  |   __|___ ___ ___| |_| | | |___| | |_ ___ ___                         
