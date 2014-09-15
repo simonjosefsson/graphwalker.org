@@ -21,23 +21,29 @@ A model, would look something like this:
 
 <a href="http://www.flickr.com/photos/36681632@N00/8380189446/" title="simpleLogin by kristian_karl, on Flickr"><img alt="simpleLogin" height="240" src="http://farm9.staticflickr.com/8213/8380189446_8dc6a91076_m.jpg" width="172" align="left"></a>
 
-1. The Start vertex is where the tests starts. (Duh!)
-2. In e_init, we remove all cache.
-3. v_ClientNotRunning will assert that there is no client process running.
-4. e_Start start the client
-5. v_LoginPrompted asserts that the login dialog is displayed and correctly rendered.
-6. e_ValidCredentials enters valid user name and password in appropriate input fields, and clicks the Sign In button.
-7. v_WhatsNew asserts that the What's New page is correctly displayed.
+**1.** The Start vertex is where the tests starts. (Duh!)
+
+**2.** In e_init, we remove all cache.
+
+**3.** v_ClientNotRunning will assert that there is no client process running.
+
+**4.** e_Start start the client
+
+**5.** v_LoginPrompted asserts that the login dialog is displayed and correctly rendered.
+
+**6.** e_ValidCredentials enters valid user name and password in appropriate input fields, and clicks the Sign In button.
+
+**7.** v_WhatsNew asserts that the What's New page is correctly displayed.
 
 ### Test automation code
 This is the programming part. Using Java  and libraries like Selenium or Sikuli (or other), you implement the code that will be clicking the buttons, selecting menus, or making REST-calls. But also, verifying and asserting that your system under test is behaving correctly.
 
 <img alt="A model of the login feature on the Spotify desktop client" src="http://farm9.staticflickr.com/8507/8367918574_75c29a2a78.jpg" style="width: 500px; height: 227px;" align="left">
 
-Click on the model above, and save the Login.graphml file locally on your computer.
-Download the latest GraphWalker standalone jar. Pick graphwalker-N.N.NN-SNAPSHOT-standalone.jar, and copy it to the same folder as the Login.graphml file.
-Download the source code template file ModelAPI.template, and copy it to the same folder as the Login.graphml file
-Now, open a console/terminal, change current directory into the folder where your files from above are, and enter following command:
+* Click on the model above, and save the Login.graphml file locally on your computer.
+* Download the latest GraphWalker standalone jar. Pick graphwalker-N.N.NN-SNAPSHOT-standalone.jar, and copy it to the same folder as the Login.graphml file.
+* Download the source code template file ModelAPI.template, and copy it to the same folder as the Login.graphml file
+* Now, open a console/terminal, change current directory into the folder where your files from above are, and enter following command:
 
 ~~~
 java -jar graphwalker-2.5.18-SNAPSHOT-standalone.jar source -f Login.graphml -t ModelAPI.template
