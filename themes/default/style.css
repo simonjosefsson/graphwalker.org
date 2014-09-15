@@ -61,7 +61,7 @@ label, input[type=button], input[type=submit], button {
 	cursor: pointer;
 }
 
-/* make buttons play nice in IE:	 
+/* make buttons play nice in IE:
 		www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
 button {
 	width: auto;
@@ -180,16 +180,17 @@ sup {
 
 code {
 	font-family: Courier, "Courier New", Monaco, Tahoma;
-	font-size: smaller;
+	font-size: 12px;
 	background: #eee;
 	color: #333;
-	padding: 0px 2px;
+	padding: 0px 0px;
+        white-space: pre-wrap;
 	line-height: 100%;
 }
 
 pre {
 	background: #eee;
-	padding: 20px;
+	padding: 3px;
 	margin-bottom: 1em;
 	overflow: auto;
 }
@@ -217,9 +218,9 @@ blockquote {
 #header a { color: #afe1da; }
 #header h1 a,
 #header a:hover { color: #fff; }
-#header h1 { 
+#header h1 {
 	font-weight: bold;
-	margin: 0; 
+	margin: 0;
 	float: left;
 }
 #header .nav {

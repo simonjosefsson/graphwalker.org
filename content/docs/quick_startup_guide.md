@@ -18,9 +18,7 @@ This will show how to create a small test. We will not implement the test, I lea
 ## Create a boilerplate project
 From the command line, run:
 ~~~
-%> mvn archetype:generate -B -DarchetypeGroupId=org.graphwalker \
-       -DarchetypeArtifactId=graphwalker-maven-archetype \
-       -DarchetypeVersion=3.0.0-SNAPSHOT -DgroupId=com.company -DartifactId=myProject
+%> mvn archetype:generate -B -DarchetypeGroupId=org.graphwalker -DarchetypeArtifactId=graphwalker-maven-archetype -DarchetypeVersion=3.0.0-SNAPSHOT -DgroupId=com.company -DartifactId=myProject
 ~~~
 Move into the myProject folder, and test the project:
 ~~~
@@ -70,21 +68,21 @@ When running the the test the output might look something like this:
 :
 :
 [INFO] ------------------------------------------------------------------------
-[INFO]   _____             _   _ _ _     _ _                                   
-[INFO]  |   __|___ ___ ___| |_| | | |___| | |_ ___ ___                         
-[INFO]  |  |  |  _| .'| . |   | | | | .'| | '_| -_|  _|                        
-[INFO]  |_____|_| |__,|  _|_|_|_____|__,|_|_,_|___|_|                          
-[INFO]                |_|         (3.0.0-SNAPSHOT)                            
+[INFO]   _____             _   _ _ _     _ _
+[INFO]  |   __|___ ___ ___| |_| | | |___| | |_ ___ ___
+[INFO]  |  |  |  _| .'| . |   | | | | .'| | '_| -_|  _|
+[INFO]  |_____|_| |__,|  _|_|_|_____|__,|_|_,_|___|_|
+[INFO]                |_|         (3.0.0-SNAPSHOT)
 [INFO] ------------------------------------------------------------------------
-[INFO] Reflections took 1178 ms to scan 52 urls, producing 2128 keys and 8117 values 
+[INFO] Reflections took 1178 ms to scan 52 urls, producing 2128 keys and 8117 values
 [INFO] Configuration:
 [INFO]     Include = [*]
 [INFO]     Exclude = []
 [INFO]      Groups = [*]
-[INFO] 
+[INFO]
 [INFO] Tests:
 [INFO]     SomeSmallTest(RandomPath, VertexCoverage, "")
-[INFO] 
+[INFO]
 [INFO] ------------------------------------------------------------------------
 Running: e_AnotherAction
 [INFO] State changed [e_AnotherAction]
@@ -103,11 +101,11 @@ Running: e_SomeAction
 Running: v_VerifySomeAction
 [INFO] State changed [e_SomeAction -> v_VerifySomeAction]
 [INFO] ------------------------------------------------------------------------
-[INFO] 
+[INFO]
 [INFO] Result :
-[INFO] 
+[INFO]
 [INFO] Tests: 1, Completed: 1, Incomplete: 0, Failed: 0, Not Executed: 0
-[INFO] 
+[INFO]
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
