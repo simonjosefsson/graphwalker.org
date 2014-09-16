@@ -24,8 +24,6 @@ The models creates an abstraction layer between the test design and the implemen
 ## Some docs that you might wanna read
 * [A quick startup guide](/pico/docs/quick_startup_guide)
 * [GraphWalker modelling syntax](/pico/docs/gw_model_syntax)
-* Running the examples
-* [Workflow using GraphWalker](/pico/docs/workflow)
 
 ## How to get it?
 Either download the standalone jar file, or include it directly in you java project.
