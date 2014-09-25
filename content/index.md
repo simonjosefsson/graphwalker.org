@@ -4,7 +4,7 @@ Description: This description will go in the meta description tag
 */
 
 ## GraphWalker 3 is here!
-The old site is here <a href="http://graphwalker.org/old_site/">graphwalker.org/old_site/</a> 
+The old site for GraphWalker 2 is here <a href="http://graphwalker.org/old_site/">graphwalker.org/old_site/</a> 
 
 ## What is GraphWalker?
 
