@@ -139,7 +139,11 @@ Also, copy and paste following into ***pom.xml***
     <groupId>org.myorg</groupId>
     <version>1.0.0-SNAPSHOT</version>
     <artifactId>example</artifactId>
-    <name>GraphWalker Core</name>
+    <name>GraphWalker Test</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <build>
         <plugins>
@@ -201,27 +205,25 @@ Run the following:
 [INFO] Scanning for projects...
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
-[INFO] Building GraphWalker Core 1.0.0-SNAPSHOT
+[INFO] Building GraphWalker Test 1.0.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-resources-plugin:2.3:resources (default-resources) @ example ---
-[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
-[INFO] skip non existing resourceDirectory /home/krikar/Documents/src/main/resources
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/krikar/gw_test/src/main/resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ example ---
 [INFO] No sources to compile
 [INFO] 
 [INFO] --- maven-resources-plugin:2.3:testResources (default-testResources) @ example ---
-[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
-[INFO] skip non existing resourceDirectory /home/krikar/Documents/src/test/resources
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/krikar/gw_test/src/test/resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ example ---
-[INFO] Changes detected - recompiling the module!
-[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
-[INFO] Compiling 1 source file to /home/krikar/Documents/target/test-classes
+[INFO] Nothing to compile - all classes are up to date
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.10:test (default-test) @ example ---
-[INFO] Surefire report directory: /home/krikar/Documents/target/surefire-reports
+[INFO] Surefire report directory: /home/krikar/gw_test/target/surefire-reports
 
 -------------------------------------------------------
  T E S T S
@@ -232,7 +234,7 @@ Action called
 edge1
 vertex2
 vertex1
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.638 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.679 sec
 
 Results :
 
@@ -241,9 +243,9 @@ Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 4.610s
-[INFO] Finished at: Thu Sep 25 21:09:25 CEST 2014
-[INFO] Final Memory: 10M/27M
+[INFO] Total time: 3.309s
+[INFO] Finished at: Thu Sep 25 22:09:03 CEST 2014
+[INFO] Final Memory: 7M/19M
 [INFO] ------------------------------------------------------------------------
 ~~~
 
