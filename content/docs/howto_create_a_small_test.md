@@ -247,4 +247,47 @@ Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 ~~~
 
+## What the tests(s) does
+First of all, we extend the class ***ExecutionContext***, this gives us access to the execution context GraphWalker needs. The context is then passed on to the constructor of ***SimpleMachine***.
+~~~
+    @Test
+    public void success() {
+(1)     Vertex start = new Vertex();
+(2)      Model model = new Model()
+(3)             .addEdge(new Edge()
+(4)             .setName("edge1")
+(5)             .setGuard(new Guard("isTrue()"))
+(6)             .setSourceVertex(start
+(7)                     .setName("vertex1"))
+(8)             .setTargetVertex(new Vertex()
+(9)                     .setName("vertex2"))
+(10)             .addAction(new Action("myAction();")));
+(11)     this.setModel(model.build());
+(12)     this.setPathGenerator(new RandomPath(new VertexCoverage(100)));
+(13)     setNextElement(start);
+(14)     Machine machine = new SimpleMachine(this);
+(15)     while (machine.hasNextStep()) {
+(16)         machine.getNextStep();
+        }
+    }
+~~~
+
+1. Creating a start node
+2. Creating the model.The model is a di-graph.
+3. Adding an edge to the model.
+4. Name the edge: **edge1**
+5. Add a guard to the edge. A guard is a conditional expression, if evaluated to true, the edge is accessible for execution, otherwise not.
+6. Set start vertex as the source vertex of the edge.
+7. Name the start vertex to: **vertex1**.
+8. Create a new vertex, and set that as the target for the edge.
+9. Name the vertex: **vertex2**.
+10. Add an action the the edge. The action is javascript code that will execute when the edge is executed.
+11. Build the model (make it immutable), and give it to the execution context.
+12. Create a path generator, and it's stop condition, and give it to the execution context.
+13. Set the start vertex as the starting point of the excution of the model.
+14. Create the machine that will control the execution.
+15. As long as the stop condition of the pasth generator is not fulfilled, **hasNext** will return **true**.
+16. Execute the next step of the model.
+
+
 
