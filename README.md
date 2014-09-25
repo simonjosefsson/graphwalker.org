@@ -1,6 +1,6 @@
-graphwalker.org
+graphwalker.org [![Build Status](https://travis-ci.org/GraphWalker/graphwalker.org.svg?branch=master)](https://travis-ci.org/GraphWalker/graphwalker.org)
 ===============
 
 The web site of GraphWalker
 
-The main content is in the content folder. (doh!)
+Whenever pushing to master, the graphwalker.org site is updated.
