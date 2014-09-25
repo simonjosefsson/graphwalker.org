@@ -4,8 +4,8 @@ jdk:
 
 env:
   global:
-    - secure: "CbDDCdTCJWJVGFdksO3jMqYJTM/BZUD5N9D1gco1PEDQWZScVDV0IpPJ/JPAUWu5yVlTT20hudzvKpqCMbMtyAkj4gyZTat8ayJTnfOlt4icLqa/qcLHgHP/Ko2qQuuOjRjMY+ICLMYCeFC8JiW8Xo6lxuYV2vkAE+pzBKtJbcY="
-    - secure: "igPAgQ/zx3x7fMabn5bgxLwGaLcBgtGaLXzb2ACbxxHnebBUzrZbDP+q5ZU4GX+SfpE8O4QKAk8UAjD6PRqv9MlGlRfhIcQBoqQfBjPIeE//Yi2SEuHpIZLMvwB56bb4ibmJPRDHUOTuIElqrV+kegeSt6FowVyVwoa92qwljUs="
+    - secure: "RYlud0jfbifFvzt06RKqqsccd0ndqN797maARNDsoWknmUBd0dcZDew4fRE+yT2nHRneCqMrO51J9xvhtr8G9xCCizu/tQ/FOz+CDej/gVqevrjpSBMrH1n5lQPGu+cHwa1fAM4gBsd6yGnjJOT4iY/0SBp8JmGQ7b5WsWsR2CM="
+    - secure: "NwfsSxtSdK9J2SQaii5a3hpDnJLL+dCd0LCLyujPYOvXD/aVAx6KdKd/YmTpeRYhrlRASsv6P+VJzDsEXnFc3UY9R9iI74En9uo/oicQ8Ubm+Y2AuPXwd7LfAFewEg9iGU6BljEy5+pxaBbPOC2QWipNrD2Pld5LUWI8Z6FPII4="
 
 before_install:
  - sudo apt-get update -qq
