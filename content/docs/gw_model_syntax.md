@@ -10,7 +10,7 @@ This describes the syntax for the ***GraphWalker***, and what the rules are when
 
 ## The model is a directed graph
 
-The objective of the model, is to express the expected behavior of the system under test. To do so, we use a [directed graph], in which a vertex (or a node) represents some desired state, and the edges (arrows, transitions) represents whatever actions we need to do in order to achieve that desired state.
+The objective of the model, is to express the expected behavior of the system under test. To do so, we use a [directed graph], in which a vertex (or a node) represents some desired state, and the edges (arcs, arrows, transitions) represents whatever actions we need to do in order to achieve that desired state.
 
 For example, let's take a web site that requires authentication before we can access the sites content. Designing a test, using a directed graph, it might look like this:
 
@@ -45,7 +45,7 @@ The name is the first word, on the first line in a label for an edge or vertex.
 A label is all the text associated to and edge or a vertex.
 
 <figure>
-  <img src="/pico/content/images/names.png" alt="Vertex and edge names">
+  <img src="/content/images/names.png" alt="Vertex and edge names">
   <figcaption>Vertex and edge names</figcaption>
 </figure>
 

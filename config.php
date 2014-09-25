@@ -4,7 +4,7 @@
 // Override any of the default settings below:
 
 $config['site_title'] = 'GraphWalker<br>The Open Source Model-Based Testing Tool';			// Site title
-$config['base_url'] = '/pico'; 				// Override base URL (e.g. http://example.com)
+$config['base_url'] = '';	// Override base URL (e.g. http://example.com)
 $config['theme'] = 'default'; 			// Set the theme (defaults to "default")
 $config['date_format'] = 'jS M Y';		// Set the PHP date format
 $config['twig_config'] = array(			// Twig settings

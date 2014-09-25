@@ -47,7 +47,7 @@ Default is true
 * --model, -m <br>
 The model, as a graphml file followed by generator with stop condition.<br>
 This options can occur multiple times.<br>
-[Read more about path generators and stop conditions](/pico/docs/path_generators_and_stop_conditions)
+[Read more about path generators and stop conditions](/docs/path_generators_and_stop_conditions)
 
 * --unvisited, -u<br>
 Will also print the remaining unvisited elements in the model.<br>
@@ -96,7 +96,7 @@ Default is true
 * --model, -m <br>
 The model, as a graphml file followed by generator with stop condition.<br>
 This options can occur multiple times.<br>
-[Read more about path generators and stop conditions](/pico/docs/path_generators_and_stop_conditions)
+[Read more about path generators and stop conditions](/docs/path_generators_and_stop_conditions)
 
 * --restful, -r<br>
 Starts as a Restful API service.<br>

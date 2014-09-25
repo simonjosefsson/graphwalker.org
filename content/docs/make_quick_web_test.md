@@ -18,7 +18,7 @@ Let's start with creating a simple model that will depict the expected behaviour
 
 This is how a model might look like:
 
-<img src="/pico/content/images/AmazonSearch.png" alt="Amazon search">
+<img src="/content/images/AmazonSearch.png" alt="Amazon search">
 
 
 ## Implementing the test
