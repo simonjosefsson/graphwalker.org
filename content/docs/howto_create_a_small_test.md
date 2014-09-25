@@ -288,7 +288,7 @@ First of all, we extend the class ***ExecutionContext***, this gives us access t
 12. Create a path generator, and it's stop condition, and give it to the execution context.
 13. Set the start vertex as the starting point of the excution of the model.
 14. Create the machine that will control the execution.
-15. As long as the stop condition of the pasth generator is not fulfilled, **hasNext** will return **true**.
+15. As long as the stop condition of the path generator is not fulfilled, **hasNext** will return **true**.
 16. Execute the next step of the model.
 
 
