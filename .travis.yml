@@ -4,8 +4,8 @@ jdk:
 
 env:
   global:
-    - secure: "IbfPdQ7rN9QsfWFj9y4iAt70toCreB25YcMWfkRmaW7THUFEwd5etBAfSUprcuLe0ToL+LzsKPZ6eT/sXY2gGkQq5Yn+yCTe1nVJadFJv3Q5AoDNqEAskwMgeROtJxeFH+J3GTYaRTgdeJdojd19eNbPJg8mFQLPGHReK4bhiCk="
-    - secure: "E2oXoUgg3A3a2tNfFXYh+P8mrDL5SrNqkR5QRGAYS9L5DatUS9ae5w/jwRKHtMgwncXrpN2jOtcwICVqHSBpBkPygyrNax79CJ2rMvMzQZ30WTMB4nO9IIngnLdzWvHd15GetSre9jlf+i8+q0jHDNGX615upxpxi98zQ8cqDPo="
+    - secure: "CbDDCdTCJWJVGFdksO3jMqYJTM/BZUD5N9D1gco1PEDQWZScVDV0IpPJ/JPAUWu5yVlTT20hudzvKpqCMbMtyAkj4gyZTat8ayJTnfOlt4icLqa/qcLHgHP/Ko2qQuuOjRjMY+ICLMYCeFC8JiW8Xo6lxuYV2vkAE+pzBKtJbcY="
+    - secure: "igPAgQ/zx3x7fMabn5bgxLwGaLcBgtGaLXzb2ACbxxHnebBUzrZbDP+q5ZU4GX+SfpE8O4QKAk8UAjD6PRqv9MlGlRfhIcQBoqQfBjPIeE//Yi2SEuHpIZLMvwB56bb4ibmJPRDHUOTuIElqrV+kegeSt6FowVyVwoa92qwljUs="
 
 before_install:
  - sudo apt-get update -qq
@@ -13,5 +13,5 @@ before_install:
  - echo "graphwalker.org,62.75.191.213 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAtt0gW2tGz1f60qs4mSteVq+AhWAw7xYak3+UegaWSwxVh9MpqG/JDRF5CpzTiUvyXlhlAYZ6kCVT5G4zXNNC7ty9UuA5D2PicGOWsF73KGLu6GbmRQTrTMf5ji/IkrFoJysNaXPIbqkwX0TB3DoTyXfE/HoP2JSGwVi5tztUaOc=" > ~/.ssh/known_hosts
 
 script:
- - rsync -avz ./ $GW_USER@graphwalker.org:/var/www
+ - sshpass -p $GW_PASSWORD rsync -avz ./ $GW_USER@graphwalker.org:/var/www
  - sshpass -p $GW_PASSWORD ssh $GW_USER@graphwalker.org chmod +R www-data:www-data /var/www/*
