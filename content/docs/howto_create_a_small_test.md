@@ -12,105 +12,239 @@ This will show how to create a small GraphWalker test.
 
  * Install the Java JDK, 7 or 8 will do
  * Install the [Maven](http://maven.apache.org/download.cgi)
- * Install the [yEd editor](http://www.yworks.com/en/products_yed_about.html)
- * Download the latest GraphWalker standalone jar file.
 
-## Create a boilerplate project
+## Create folder structure
 From the command line, run:
 ~~~
-%> mvn archetype:generate -B -DarchetypeGroupId=org.graphwalker -DarchetypeArtifactId=graphwalker-maven-archetype -DgroupId=com.company -DartifactId=myProject
+%> mkdir -p gw_test/src/test/java/
+%> cd gw_test
 ~~~
-Move into the myProject folder, and test the project:
+
+Copy and paste following into ***src/test/java/ExampleTest.java***
 ~~~
-%> cd myProject
-%> mvn org.graphwalker:generate-sources
+import org.graphwalker.core.condition.VertexCoverage;
+import org.graphwalker.core.generator.RandomPath;
+import org.graphwalker.core.machine.*;
+import org.graphwalker.core.model.*;
+import org.junit.Assert;
+import org.junit.Test;
+
+import static org.hamcrest.core.Is.is;
+
+public class ExampleTest extends ExecutionContext {
+
+    public void vertex1() {
+        System.out.println("vertex1");
+    }
+
+    public void edge1() {
+        System.out.println("edge1");
+    }
+
+    public void vertex2() {
+        System.out.println("vertex2");
+    }
+
+    public void vertex3() {
+        throw new RuntimeException();
+    }
+
+    public boolean isFalse() {
+        return false;
+    }
+
+    public boolean isTrue() {
+        return true;
+    }
+
+    public void myAction() {
+        System.out.println("Action called");
+    }
+
+    @Test
+    public void success() {
+        Vertex start = new Vertex();
+        Model model = new Model().addEdge(new Edge()
+                .setName("edge1")
+                .setGuard(new Guard("isTrue()"))
+                .setSourceVertex(start
+                        .setName("vertex1"))
+                .setTargetVertex(new Vertex()
+                        .setName("vertex2"))
+                .addAction(new Action("myAction();")));
+        this.setModel(model.build());
+        this.setPathGenerator(new RandomPath(new VertexCoverage(100)));
+        setNextElement(start);
+        Machine machine = new SimpleMachine(this);
+        while (machine.hasNextStep()) {
+            machine.getNextStep();
+        }
+    }
+
+    @Test(expected = MachineException.class)
+    public void failure() {
+        Vertex start = new Vertex();
+        Model model = new Model().addEdge(new Edge()
+                .setName("edge1")
+                .setGuard(new Guard("isFalse()"))
+                .setSourceVertex(start
+                        .setName("vertex1"))
+                .setTargetVertex(new Vertex()
+                        .setName("vertex2")));
+        this.setModel(model.build());
+        this.setPathGenerator(new RandomPath(new VertexCoverage(100)));
+        setNextElement(start);
+        Machine machine = new SimpleMachine(this);
+        while (machine.hasNextStep()) {
+            machine.getNextStep();
+        }
+    }
+
+    @Test
+    public void exception() {
+        Vertex start = new Vertex();
+        Model model = new Model().addEdge(new Edge()
+                .setName("edge1")
+                .setGuard(new Guard("isTrue()"))
+                .setSourceVertex(start
+                        .setName("vertex3"))
+                .setTargetVertex(new Vertex()
+                        .setName("vertex2")));
+        this.setModel(model.build());
+        this.setPathGenerator(new RandomPath(new VertexCoverage(100)));
+        setNextElement(start);
+        Machine machine = new SimpleMachine(this);
+        Assert.assertThat(getExecutionStatus(), is(ExecutionStatus.NOT_EXECUTED));
+        try {
+            while (machine.hasNextStep()) {
+                machine.getNextStep();
+                Assert.assertThat(getExecutionStatus(), is(ExecutionStatus.EXECUTING));
+            }
+        } catch (Throwable t) {
+            Assert.assertTrue(MachineException.class.isAssignableFrom(t.getClass()));
+            Assert.assertThat(getExecutionStatus(), is(ExecutionStatus.FAILED));
+        }
+    }
+}
 ~~~
-You now have a complete GraphWalker 3 project.
 
-### About auto-generated sources
+Also, copy and paste following into ***pom.xml***
+~~~
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-The maven command above generated an interface **SmallTest**, from the model **SmallTest.graphml**. This feature helps the developer to keep the code in sync with the model(s). The requirement is that the graphml file needs to be in folder path, which is the same (package) path as for the java project, but under resource path instead.
+    <modelVersion>4.0.0</modelVersion>
 
-<figure>
-  <img src="/content/images/folderPaths.png" alt="Folder paths">
-  <figcaption>The source code layout after the auto source code generation is done.</figcaption>
-</figure>
+    <groupId>org.myorg</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+    <artifactId>example</artifactId>
+    <name>GraphWalker Core</name>
 
-<figure>
-  <img src="/content/images/SmallTestInterface.png" alt="SmallTest Interface">
-  <figcaption>The auto-generated interface that is created from the model below. The complete path is <code>target/generated-sources/graphwalker/com/company/SmallTest.java</code></figcaption>
-</figure>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
-### The model
 
-The test is itself is quite simple. When opened in the yEd editor, it will look like below.
+    <dependencies>
+        <dependency>
+            <groupId>org.graphwalker</groupId>
+            <artifactId>graphwalker-core</artifactId>
+	    <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+	    <version>1.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+	    <version>1.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+	    <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
-<figure>
-  <img src="/content/images/SmallTest.png" alt="Small test model">
-  <figcaption>The model <strong>SmallTest.graphml</strong> that is used for this test.</figcaption>
-</figure>
+</project>
+~~~
 
-### The test automation code
-
-The class **SomeSmallTest** implements the interface **SmallTest**. The annotation <code>@GraphWalker(start="e_AnotherAction")</code> tells GraphWalker to start the test at the edge <code>e_AnotherAction</code>. The default path generator is the random generator with 100% vertex coverage.
-
-<figure>
-  <img src="/content/images/SomeSmallTestJava.png" alt="SomeSmallTest Class">
-  <figcaption>The class <code>SomeSmallTest</code> that implements the test.</figcaption>
-</figure>
-
+Your folder and file structure will look like this:
+~~~
+%> tree
+.
+├── pom.xml
+└── src
+    └── test
+        └── java
+            └── ExampleTest.java
+~~~
 
 ## Running the test
-When running the the test the output might look something like this:
+Run the following:
 ~~~
-%> mvn org.graphwalker:graphwalker-maven-plugin:3.0.0-SNAPSHOT:test
-:
-:
-:
+%> mvn test
+[INFO] Scanning for projects...
+[INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
-[INFO]   _____             _   _ _ _     _ _
-[INFO]  |   __|___ ___ ___| |_| | | |___| | |_ ___ ___
-[INFO]  |  |  |  _| .'| . |   | | | | .'| | '_| -_|  _|
-[INFO]  |_____|_| |__,|  _|_|_|_____|__,|_|_,_|___|_|
-[INFO]                |_|         (3.0.0-SNAPSHOT)
+[INFO] Building GraphWalker Core 1.0.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
-[INFO] Reflections took 1178 ms to scan 52 urls, producing 2128 keys and 8117 values
-[INFO] Configuration:
-[INFO]     Include = [*]
-[INFO]     Exclude = []
-[INFO]      Groups = [*]
-[INFO]
-[INFO] Tests:
-[INFO]     SomeSmallTest(RandomPath, VertexCoverage, "")
-[INFO]
-[INFO] ------------------------------------------------------------------------
-Running: e_AnotherAction
-[INFO] State changed [e_AnotherAction]
-Running: v_VerifySomeOtherAction
-[INFO] State changed [e_AnotherAction -> v_VerifySomeOtherAction]
-Running: e_SomeOtherAction
-[INFO] State changed [v_VerifySomeOtherAction -> e_SomeOtherAction]
-Running: v_VerifySomeOtherAction
-[INFO] State changed [e_SomeOtherAction -> v_VerifySomeOtherAction]
-Running: e_SomeOtherAction
-[INFO] State changed [v_VerifySomeOtherAction -> e_SomeOtherAction]
-Running: v_VerifySomeOtherAction
-[INFO] State changed [e_SomeOtherAction -> v_VerifySomeOtherAction]
-Running: e_SomeAction
-[INFO] State changed [v_VerifySomeOtherAction -> e_SomeAction]
-Running: v_VerifySomeAction
-[INFO] State changed [e_SomeAction -> v_VerifySomeAction]
-[INFO] ------------------------------------------------------------------------
-[INFO]
-[INFO] Result :
-[INFO]
-[INFO] Tests: 1, Completed: 1, Incomplete: 0, Failed: 0, Not Executed: 0
-[INFO]
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:resources (default-resources) @ example ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /home/krikar/Documents/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ example ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:testResources (default-testResources) @ example ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /home/krikar/Documents/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ example ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 1 source file to /home/krikar/Documents/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ example ---
+[INFO] Surefire report directory: /home/krikar/Documents/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running ExampleTest
+vertex1
+Action called
+edge1
+vertex2
+vertex1
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.638 sec
+
+Results :
+
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 4.398s
-[INFO] Finished at: Sun Sep 14 13:17:27 CEST 2014
-[INFO] Final Memory: 41M/341M
+[INFO] Total time: 4.610s
+[INFO] Finished at: Thu Sep 25 21:09:25 CEST 2014
+[INFO] Final Memory: 10M/27M
 [INFO] ------------------------------------------------------------------------
 ~~~
+
+
