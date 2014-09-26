@@ -73,7 +73,7 @@ The test is itself is quite simple. When opened in the yEd editor, it will look 
 
 <figure>
   <img src="/content/images/SmallTest.png" alt="Small test model">
-  <figcaption>The model <strong>SmallTest.graphml</strong> that is used for this test.</figcaption>
+  <figcaption>The model <strong><a href="https://github.com/GraphWalker/graphwalker-maven-archetype/raw/master/src/main/resources/archetype-resources/src/main/resources/SmallTest.graphml">SmallTest.graphml</a></strong> that is used for this test.</figcaption>
 </figure>
 
 ### The test automation code
