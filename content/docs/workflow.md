@@ -23,6 +23,7 @@ The purpose of the test design is to describe the **expected behavior of the sys
 Our test idea, is to write a regression test for the Spotify Desktop Client, more sepcifically, the feature **login**. (<a href="http://en.wikipedia.org/wiki/Spotify">Spotify is a music streaming business</a>)
 
 The feature is suppose to work  like this:
+
 * In a freshly installed client, and the client is started, the Login dialog is expected to be displayed.
 * The user enters valid credentials and the client is expected to start.
 * If the user quits, or logs out, the Login dialog is displayed once again.
@@ -56,7 +57,6 @@ The above is a simple test. In fact, it's just one possible path through the mod
  
 The complete model could look something like below:
 
-<img src="/content/images/Login.png" alt="Complete Login model">
 <a href="/content/images/Login.graphml" title="Spotify login feature on desktop"><img alt="Complete Login model" src="/content/images/Login.png"></a>
 
 ### Verifying the correctness of the model
