@@ -6,16 +6,22 @@ Description: This description will go in the meta description tag
 # Workflow - This is how you would work using GraphWalker
 This article will describe a normal workflow when designing for test automation using GraphWalker. There are 3 main steps involved:
 
+* Test idea
 * The design
 * Writing the test code
 * Running the test. 
 
-## Test design
-The purpose of the test design is to describe the *expected behavior of the system under test*. The way it works, is that you in a finite state diagram [model], express an action as a directed edge (an arrow). The edge points to a vertex (node), where the result or consequence of the action is verified/asserted.
+## Test idea and design
+The purpose of the test design is to describe the **expected behavior of the system under test**. The way it works, is that you in a finite state diagram [model], express an action as a directed edge. An edge is alson known as an arrow, arc or transition. The edge points to a vertex. Also known as a node or state, where the results or the consequence of the previous action is verified/asserted.
 
-Let's try an example. Let's say we have the following requirements, which is taken from the Spotify desktop client.
+### Test idea
+Our test idea, is to write a regression test for the Spotify Desktop Client, more sepcifically, the feature **login**. (<a href="http://en.wikipedia.org/wiki/Spotify">Spotify is a music streaming business</a>)
 
-If all cache is removed, and the client is then started, the Login dialog is expected to be displayed. If the user enters valid credentials and tries to login, the client is expected to display the What's New page.
+The feature is suppose to work  like this:
+* In a freshly installed client, and the client is started, the Login dialog is expected to be displayed.
+* The user enters valid credentials and the client is expected to start.
+* If the user quits, or logs out, the Login dialog is displayed once again.
+* If the user checks the **Remember Me** chackbox, and logs in (using valid creds), the client starts, and, nect time the user starts the client, it will start without displaying the Login dialog.
 
 A model, would look something like this:
 

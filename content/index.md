@@ -24,10 +24,6 @@ Modelling using a finite-state diagram is visual, it's easy to understand. Getti
 #### *For whoever pays the bills:*
 The models creates an abstraction layer between the test design and the implementing automation code. This is important when it comes to maintenance. Remember that the test automation (code and design) will have as long life time expectancy as the system under test. The return of investment is higher, if the test design and automation code is easy to work with and maintain. That's why it's so important with a good abstraction layer between design and implementation.
 
-## Some docs that you might wanna read
-* [A quick startup guide](/docs/quick_startup_guide)
-* [GraphWalker modelling syntax](/docs/gw_model_syntax)
-
 ## How to get it?
 Either download the standalone jar file, or include it directly in you java project.
 
