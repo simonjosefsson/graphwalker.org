@@ -8,8 +8,13 @@ This article will describe a normal workflow when designing for test automation 
 
 * Test idea
 * The design
-* Writing the test code
-* Running the test. 
+* Creating the test code
+* Running the test
+
+### Pre-install the requirements
+
+ * Install the Java JDK, 7 or 8 will do
+ * Install the [Maven](http://maven.apache.org/download.cgi)
 
 ## Test idea and design
 The purpose of the test design is to describe the **expected behavior of the system under test**. The way it works, is that you in a finite state diagram [model], express an action as a directed edge. An edge is alson known as an arrow, arc or transition. The edge points to a vertex. Also known as a node or state, where the results or the consequence of the previous action is verified/asserted.
@@ -21,128 +26,269 @@ The feature is suppose to work  like this:
 * In a freshly installed client, and the client is started, the Login dialog is expected to be displayed.
 * The user enters valid credentials and the client is expected to start.
 * If the user quits, or logs out, the Login dialog is displayed once again.
-* If the user checks the **Remember Me** chackbox, and logs in (using valid creds), the client starts, and, nect time the user starts the client, it will start without displaying the Login dialog.
+* If the user checks the **Remember Me** chackbox, and logs in (using valid creds), the client starts, and, next time the user starts the client, it will start without asking the client for credentials.
 
-A model, would look something like this:
+Just desinging a test for the 2 first steps, a model would look something like this:
 
-<a href="http://www.flickr.com/photos/36681632@N00/8380189446/" title="simpleLogin by kristian_karl, on Flickr"><img alt="simpleLogin" height="240" src="http://farm9.staticflickr.com/8213/8380189446_8dc6a91076_m.jpg" width="172" align="left"></a>
+<img src="/content/images/Login-first.png" alt="Login model, first iteration">
 
-**1.** The Start vertex is where the tests starts. (Duh!)
+1. The **Start** vertex is where the tests starts. (Duh!)
 
-**2.** In e_init, we remove all cache.
+2. In **e_Init**, we remove all cache, and kill any previous client processes. Since the test might be restarted, stored credentialson the disk might still lie around, so we need to get rid of it. Also, restarted tests could have stopped in a state, where the client still is running.
 
-**3.** v_ClientNotRunning will assert that there is no client process running.
+3. **v_ClientNotRunning** will assert that there is no spotify client process running.
 
-**4.** e_Start start the client
+4. **e_Start** starts the client.
 
-**5.** v_LoginPrompted asserts that the login dialog is displayed and correctly rendered.
+5. **v_LoginPrompted** asserts that the login dialog is displayed and correctly rendered.
 
-**6.** e_ValidCredentials enters valid user name and password in appropriate input fields, and clicks the Sign In button.
+6. **e_ValidCredentials** enters a valid user name and password and clicks the Sign In button.
 
-**7.** v_WhatsNew asserts that the What's New page is correctly displayed.
+7. **v_Browse** asserts that the Browse view is correctly displayed.
 
-### Test automation code
-This is the programming part. Using Java  and libraries like Selenium or Sikuli (or other), you implement the code that will be clicking the buttons, selecting menus, or making REST-calls. But also, verifying and asserting that your system under test is behaving correctly.
+The above is a simple test. In fact, it's just one possible path through the model. It could be called the <a href="http://en.wikipedia.org/wiki/Use_case#Example">Basic flow</a> in a Use case. To make the test a better regression test, we extend the model.
 
-<img alt="A model of the login feature on the Spotify desktop client" src="http://farm9.staticflickr.com/8507/8367918574_75c29a2a78.jpg" style="width: 500px; height: 227px;" align="left">
+* Logout
+* Exit the client
+* Testing invalid credentials
+* Enabling and disabling stored credentials (Remember Me)
+* Closing/cancelling the login dialog
+ 
+The complete model could look something like below:
 
-* Click on the model above, and save the Login.graphml file locally on your computer.
-* Download the latest GraphWalker standalone jar. Pick graphwalker-N.N.NN-SNAPSHOT-standalone.jar, and copy it to the same folder as the Login.graphml file.
-* Download the source code template file ModelAPI.template, and copy it to the same folder as the Login.graphml file
-* Now, open a console/terminal, change current directory into the folder where your files from above are, and enter following command:
+<img src="/content/images/Login.png" alt="Complete Login model">
+<a href="/content/images/Login.graphml" title="Spotify login feature on desktop"><img alt="Complete Login model" src="/content/images/Login.png"></a>
 
+### Verifying the correctness of the model
+
+Before venturing into the test coding part, we need to verify wether the model is correct according to GraphWalker syntax rules. [See GraphWalker modeling syntax](/docs/gw_model_syntax)
+
+To verify the model, we use the GraphWalker CLI to test it:
 ~~~
-java -jar graphwalker-2.5.18-SNAPSHOT-standalone.jar source -f Login.graphml -t ModelAPI.template
+%> java -jar graphwalker.java offline -m login.graphml "random(edge_coverage(100))"
+{"CurrentElementName":"e_Init"}
+{"CurrentElementName":"v_ClientNotRunning"}
+{"CurrentElementName":"e_StartClient"}
+{"CurrentElementName":"v_LoginPrompted"}
+{"CurrentElementName":"e_InvalidCredentials"}
+{"CurrentElementName":"v_LoginPrompted"}
+{"CurrentElementName":"e_ValidPremiumCredentials"}
+{"CurrentElementName":"v_Browse"}
+{"CurrentElementName":"e_Exit"}
+{"CurrentElementName":"v_ClientNotRunning"}
+{"CurrentElementName":"e_StartClient"}
+{"CurrentElementName":"v_Browse"}
+{"CurrentElementName":"e_Logout"}
+{"CurrentElementName":"v_LoginPrompted"}
+{"CurrentElementName":"e_InvalidCredentials"}
+{"CurrentElementName":"v_LoginPrompted"}
+{"CurrentElementName":"e_InvalidCredentials"}
+{"CurrentElementName":"v_LoginPrompted"}
+{"CurrentElementName":"e_ToggleRememberMe"}
+{"CurrentElementName":"v_LoginPrompted"}
+{"CurrentElementName":"e_ToggleRememberMe"}
+{"CurrentElementName":"v_LoginPrompted"}
+{"CurrentElementName":"e_Close"}
+{"CurrentElementName":"v_ClientNotRunning"}
+~~~
+A JSON formatted test sequence is generated. This is an offline generated test. No errors or other warning messages are generated, which means that the model is correct.
+
+## Creating the test code
+Using Maven and the complete model above create all the stub code needed. 
+
+
+1. Create the folder structure:
+~~~
+%> mkdir -p login/src/main/java/org/myorg/testautomation
+%> mkdir -p login/src/main/resources/org/myorg/testautomation
+~~~
+2. Click on the complete Login model above, and save it to **login/src/main/resources/org/myorg/testautomation** as Login.graphml.
+3. Copy and paste following and save it as pom.xml in **login** folder.
+~~~
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.myorg</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+    <artifactId>example</artifactId>
+    <name>GraphWalker Test</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.graphwalker</groupId>
+                <artifactId>graphwalker-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <!-- Bind goals to the default lifecycle -->
+                <executions>
+                    <execution>
+                        <id>generate-test-sources</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                            <goal>generate-test-sources</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>test</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.graphwalker</groupId>
+            <artifactId>graphwalker-core</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.graphwalker</groupId>
+            <artifactId>graphwalker-maven-plugin</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+             <version>1.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+    </dependencies>
+
+</project>
+~~~
+4. CD into the login folder, and run following:
+~~~
+%> cd login
+%> mvn graphwalker:generate-sources
 ~~~
 
-This will print stub source code to the terminal. If you want to save it directly to a file, add: " > Login.java" to the end of the command (skip the quotation marks).
+The last command will automatically generate an interface of the model in Login.graphml.The interface is found in the folder **target/generated-sources/graphwalker/**. Your job is now to implement that interface. Also, you need to fill in the missing code into the methods in the class that implements the interface. First you have to find the right tool for the job. I would suggest [Sikuli](http://www.sikuli.org/).
 
-Of course, you need to fill in the missing code into the methods. First you have to find the right tool for the job. If it's the web, maybe the Webdriver from Selenium is your choice.  See the demo, where the webdriver is put into good use.
+## Running the test
+GraphWalker, has the capability to to traverse through a model using differently strategies and stop criteria. This is done with the help of annotation in front of the class:
+~~~
+@GraphWalker(value = "random(vertex_coverage(100))", start = "e_Init")
+~~~
 
-### Running the test
-GraphWalker, has the capability to to traverse through a model using differently strategies and stop criteria. Using different combination, we can create different test types, like Smoke Test, Functional Test or a Stability Test to determine reliability and resource usage, but still using exactly the same model and code!
+Using different combination, we can create different test types, like Smoke Test, Functional Test or a Stability Test to determine reliability and resource usage, but still using exactly the same model and code!
 
 ### Smoke test example
-A model of the login feature on the Spotify desktop client
+We can create a smoke test, a test that only verifies the basic flow of the model with following annotation:
+~~~
+@GraphWalker(value = "a_star(reached_vertexv_Browse))", start = "e_Init")
+~~~
 
-Consider the model above.It's a model of the login feature of the Spotify desktop client. 
-
-We will use the same model [/model/Login.graphml], and code [class Login]  in all three examples. In this case we use:
-
-* a generator A_StarPathGenerator, which will generate the shortest path through the model (given the stop criteria).
-* a stop criteria ReachedVertex, which will stop the walk when we reach the specified vertex.
-Using this combination of generator and stop criteria, GraphWalker will generate a short walk through the model, calling following methods in the class Login in this order:
-
+That would generate this test sequence:
 ~~~
 e_Init
 v_ClientNotRunning
 e_StartClient
 v_LoginPrompted
 e_ValidPremiumCredentials
-v_WhatsNew
+v_Browse
 ~~~
 
-A Smoke test would look something like this:
+To run the test, run following command:
+~~~
+%> mvn graphwalker:test
+~~~
 
-~~~
-// Instancing GraphWalkers model handler
-ModelHandler modelhandler = new ModelHandler();
-    
-// Get the model from resources
-URL url = LoginTest.class.getResource("/model/Login.graphml");
-File file = new File(url.toURI());
- 
-// Connect the model to a java class, and add it to graphwalker's modelhandler.
-// The model is to be executed using the following criteria:
-// EFSM: Extended finite state machine is set to true, which means we are using the data domain
-// in the model
-// Generator: a_star, we want to walk through the model using shortest possible path.
-// Stop condition: Stop when we reach vertex v_WhatsNew.
-modelhandler.add("Login", new Login(file, true, new A_StarPathGenerator(new ReachedVertex("v_WhatsNew")), false));
- 
-// Start executing the test
-modelhandler.execute("Login");
- 
-// Verify that the execution is complete, fulfilling the criteria from above.
-Assert.assertTrue(modelhandler.isAllModelsDone(), "Not all models are done");
- 
-// Print the statistics from graphwalker
-String statistics = modelhandler.getStatistics();
-System.out.println(statistics);
-~~~
- 
+
 ### Functional test example
-We are still using the same model [/model/Login.graphml], and code [class Login] as above. But, in this case:
-
-* The generator is changed from A_StarPathGenerator to RandomPathGenerator, which will walk to model in an upredicted way.
-* Stop criteria is changed from ReachedVertex to EdgeCoverage, which guarantees the we will coverer the complete model.
-
-Using the RandomPathGenerator, will give us the benefit of generating a path through the model, which is not exactly the same path we used before. A different permutation will increase the test coverage, given if we run the test frequently.
-
+A functional test would explore the complete graph. 
 ~~~
-// Connect the model to a java class, and add it to graphwalker's modelhandler.
-// The model is to be executed using the following criteria:
-// EFSM: Extended finite state machine is set to true, which means we are using the data domain
-// in the model
-// Generator: random, walk through the model in a random manor.
-// Stop condition: Stop when we have covered all edges at least once
-modelhandler.add("Login", new Login(file, true, new RandomPathGenerator(new EdgeCoverage(1.0)), false));
+@GraphWalker(value = "random(edge_coverage(100))", start = "e_Init")
 ~~~
 
 ### Stability test example
-We are still using the same model [/model/Login.graphml], and code [class Login] as above. But, in this case:
+A long ruining stability test would run for perhaps 10 hours.
+~~~
+@GraphWalker(value = "random(time_duration(36000))", start = "e_Init")
+~~~
 
-* The stop criteria is changed from EdgeCoverage to TimeDuration, and a time set to 10 hours.
-
-This combination will walk around the model and execute the test for 10 excruciating hours.
+### Class implementing the interface
+Below is an example of a class implementing the interface of the Login model,
 
 ~~~
-// Connect the model to a java class, and add it to graphwalker's modelhandler.
-// The model is to be executed using the following criteria:
-// EFSM: Extended finite state machine is set to true, which means we are using the data domain
-// in the model
-// Generator: random, walk through the model in a random manor.
-// Stop condition: Stop when we reach vertex v_WhatsNew.
-modelhandler.add("Login", new login(file, true, new RandomPathGenerator(new ~~~
-TimeDuration(10*3600)), false));
+package org.myorg.testautomation;
+
+import org.graphwalker.java.annotation.GraphWalker;
+
+@GraphWalker(value = "random(edge_coverage(100))", start = "e_Init")
+public class LoginRegressionTest implements Login {
+    @Override
+    public void e_InvalidCredentials() {
+        System.out.println("Your code here!");
+    }
+
+    @Override
+    public void v_LoginPrompted() {
+        System.out.println("Your code here!");
+    }
+
+    @Override
+    public void e_ToggleRememberMe() {
+        System.out.println("Your code here!");
+    }
+
+    @Override
+    public void e_Exit() {
+        System.out.println("Your code here!");
+    }
+
+    @Override
+    public void e_ValidPremiumCredentials() {
+        System.out.println("Your code here!");
+    }
+
+    @Override
+    public void e_Close() {
+        System.out.println("Your code here!");
+    }
+
+    @Override
+    public void e_Logout() {
+        System.out.println("Your code here!");
+    }
+
+    @Override
+    public void v_WhatsNew() {
+        System.out.println("Your code here!");
+    }
+
+    @Override
+    public void e_StartClient() {
+        System.out.println("Your code here!");
+    }
+
+    @Override
+    public void v_ClientNotRunning() {
+        System.out.println("Your code here!");
+    }
+}
 ~~~
