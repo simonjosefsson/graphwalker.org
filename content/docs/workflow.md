@@ -31,7 +31,7 @@ The feature is suppose to work  like this:
 
 Just designing a test for the 2 first steps, a model would look something like this:
 
-<img src="/content/images/Login-first.png" alt="Login model, first iteration">
+<img src="/content/images/Login-first.png" alt="Login model, first iteration" align="left">
 
 1. The **Start** vertex is where the tests starts. (Duh!)
 
