@@ -17,25 +17,25 @@ This article will describe a normal workflow when designing for test automation 
  * Install the [Maven](http://maven.apache.org/download.cgi)
 
 ## Test idea and design
-The purpose of the test design is to describe the **expected behavior of the system under test**. The way it works, is that you in a finite state diagram [model], express an action as a directed edge. An edge is alson known as an arrow, arc or transition. The edge points to a vertex. Also known as a node or state, where the results or the consequence of the previous action is verified/asserted.
+The purpose of the test design is to describe the **expected behavior of the system under test**. The way it works, is that you in a finite state diagram [model], express an action as a directed edge. An edge is also known as an arrow, arc or transition. The edge points to a vertex. Also known as a node or state, where the results or the consequence of the previous action is verified/asserted.
 
 ### Test idea
-Our test idea, is to write a regression test for the Spotify Desktop Client, more sepcifically, the feature **login**. (<a href="http://en.wikipedia.org/wiki/Spotify">Spotify is a music streaming business</a>)
+Our test idea, is to write a regression test for the Spotify Desktop Client, more specifically, the feature **login**. (<a href="http://en.wikipedia.org/wiki/Spotify">Spotify is a music streaming business</a>)
 
 The feature is suppose to work  like this:
 
 * In a freshly installed client, and the client is started, the Login dialog is expected to be displayed.
 * The user enters valid credentials and the client is expected to start.
 * If the user quits, or logs out, the Login dialog is displayed once again.
-* If the user checks the **Remember Me** chackbox, and logs in (using valid creds), the client starts, and, next time the user starts the client, it will start without asking the client for credentials.
+* If the user checks the **Remember Me** checkbox, and logs in (using valid creds), the client starts, and, next time the user starts the client, it will start without asking the client for credentials.
 
-Just desinging a test for the 2 first steps, a model would look something like this:
+Just designing a test for the 2 first steps, a model would look something like this:
 
 <img src="/content/images/Login-first.png" alt="Login model, first iteration">
 
 1. The **Start** vertex is where the tests starts. (Duh!)
 
-2. In **e_Init**, we remove all cache, and kill any previous client processes. Since the test might be restarted, stored credentialson the disk might still lie around, so we need to get rid of it. Also, restarted tests could have stopped in a state, where the client still is running.
+2. In **e_Init**, we remove all cache, and kill any previous client processes. Since the test might be restarted, stored credentials on the disk might still lie around, so we need to get rid of it. Also, restarted tests could have stopped in a state, where the client still is running.
 
 3. **v_ClientNotRunning** will assert that there is no spotify client process running.
 
@@ -43,7 +43,7 @@ Just desinging a test for the 2 first steps, a model would look something like t
 
 5. **v_LoginPrompted** asserts that the login dialog is displayed and correctly rendered.
 
-6. **e_ValidCredentials** enters a valid user name and password and clicks the Sign In button.
+6. **e_ValidCredentials** enters a valid username and password and clicks the Sign In button.
 
 7. **v_Browse** asserts that the Browse view is correctly displayed.
 
@@ -61,7 +61,7 @@ The complete model could look something like below:
 
 ### Verifying the correctness of the model
 
-Before venturing into the test coding part, we need to verify wether the model is correct according to GraphWalker syntax rules. [See GraphWalker modeling syntax](/docs/gw_model_syntax)
+Before venturing into the test coding part, we need to verify whether the model is correct according to GraphWalker syntax rules. [See GraphWalker modeling syntax](/docs/gw_model_syntax)
 
 To verify the model, we use the GraphWalker CLI to test it:
 ~~~
@@ -292,3 +292,5 @@ public class LoginRegressionTest implements Login {
     }
 }
 ~~~
+
+
