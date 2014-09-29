@@ -1,3 +1,8 @@
+# whitelist
+branches:
+  only:
+    - master
+
 env:
   global:
     - secure: "RYlud0jfbifFvzt06RKqqsccd0ndqN797maARNDsoWknmUBd0dcZDew4fRE+yT2nHRneCqMrO51J9xvhtr8G9xCCizu/tQ/FOz+CDej/gVqevrjpSBMrH1n5lQPGu+cHwa1fAM4gBsd6yGnjJOT4iY/0SBp8JmGQ7b5WsWsR2CM="
