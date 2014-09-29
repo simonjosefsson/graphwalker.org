@@ -3,6 +3,8 @@ Title: The workflow using GraphWalker
 Description: This description will go in the meta description tag
 */
 
+# <font color='red'>This doc is valid for release 3.1.0, which will be release 2014-10-05</font>
+
 # Workflow - This is how you would work using GraphWalker
 This article will describe a normal workflow when designing for test automation using GraphWalker. There are 3 main steps involved:
 
