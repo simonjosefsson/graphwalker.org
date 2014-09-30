@@ -23,6 +23,10 @@ work/
 amps-standalone/
 */dependency-reduced-pom.xml
 
+# Temporary files #
+###################
+*.kate-swp
+
 # Mac stuff #
 #############
 .DS_Store

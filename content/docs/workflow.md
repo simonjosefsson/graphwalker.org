@@ -3,7 +3,7 @@ Title: The workflow using GraphWalker
 Description: This description will go in the meta description tag
 */
 
-# <font color='red'>This doc is valid for version 3.1.0, which will be released 2014-10-05</font>
+## <font color='red'>This doc is valid for version 3.1.0, which will be released 2014-10-05</font>
 
 # Workflow - This is how you would work using GraphWalker
 This article will describe a normal workflow when designing for test automation using GraphWalker. There are 3 main steps involved:
@@ -56,7 +56,7 @@ The above is a simple test. In fact, it's just one possible path through the mod
 * Testing invalid credentials
 * Enabling and disabling stored credentials (Remember Me)
 * Closing/cancelling the login dialog
- 
+
 The complete model could look something like below:
 
 <a href="/content/images/Login.graphml" title="Spotify login feature on desktop"><img alt="Complete Login model" src="/content/images/Login.png"></a>
@@ -67,7 +67,7 @@ Before venturing into the test coding part, we need to verify whether the model 
 
 To verify the model, we use the GraphWalker CLI to test it:
 ~~~
-%> java -jar graphwalker.java offline -m login.graphml "random(edge_coverage(100))"
+%> java -jar graphwalker.java offline -m Login.graphml "random(edge_coverage(100))"
 {"CurrentElementName":"e_Init"}
 {"CurrentElementName":"v_ClientNotRunning"}
 {"CurrentElementName":"e_StartClient"}
@@ -96,13 +96,14 @@ To verify the model, we use the GraphWalker CLI to test it:
 A JSON formatted test sequence is generated. This is an offline generated test. No errors or other warning messages are generated, which means that the model is correct.
 
 ## Creating the test code
-Using Maven and the complete model above create all the stub code needed. 
+Using Maven and the complete model above create all the stub code needed.
 
 
 1. Create the folder structure:
 ~~~
 %> mkdir -p login/src/main/java/org/myorg/testautomation
 %> mkdir -p login/src/main/resources/org/myorg/testautomation
+%> mkdir -p login/src/test/java/org/myorg/testautomation
 ~~~
 2. Click on the complete Login model above, and save it to **login/src/main/resources/org/myorg/testautomation** as Login.graphml.
 3. Copy and paste following and save it as pom.xml in **login** folder.
@@ -114,7 +115,7 @@ Using Maven and the complete model above create all the stub code needed.
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.myorg</groupId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>3.0.1-SNAPSHOT</version>
     <artifactId>example</artifactId>
     <name>GraphWalker Test</name>
 
@@ -136,7 +137,7 @@ Using Maven and the complete model above create all the stub code needed.
             <plugin>
                 <groupId>org.graphwalker</groupId>
                 <artifactId>graphwalker-maven-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>${project.version}</version>
                 <!-- Bind goals to the default lifecycle -->
                 <executions>
                     <execution>
@@ -162,12 +163,17 @@ Using Maven and the complete model above create all the stub code needed.
         <dependency>
             <groupId>org.graphwalker</groupId>
             <artifactId>graphwalker-core</artifactId>
-            <version>3.1.0</version>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.graphwalker</groupId>
+            <artifactId>graphwalker-java</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.graphwalker</groupId>
             <artifactId>graphwalker-maven-plugin</artifactId>
-            <version>3.1.0</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -179,6 +185,11 @@ Using Maven and the complete model above create all the stub code needed.
             <artifactId>logback-classic</artifactId>
             <version>1.1.2</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+        </dependency>
     </dependencies>
 
 </project>
@@ -189,109 +200,156 @@ Using Maven and the complete model above create all the stub code needed.
 %> mvn graphwalker:generate-sources
 ~~~
 
-The last command will automatically generate an interface of the model in Login.graphml.The interface is found in the folder **target/generated-sources/graphwalker/**. Your job is now to implement that interface. Also, you need to fill in the missing code into the methods in the class that implements the interface. First you have to find the right tool for the job. I would suggest [Sikuli](http://www.sikuli.org/).
+The last command will automatically generate an interface of the model in Login.graphml.The interface is found in the folder **target/generated-sources/graphwalker/**. Your job is now to implement that interface, which means filling in the missing code into the methods in the class that implements the interface. First you have to find the right tool for the job. I would suggest [Sikuli](http://www.sikuli.org/).
 
-## Running the test
-GraphWalker, has the capability to to traverse through a model using differently strategies and stop criteria. This is done with the help of annotation in front of the class:
-~~~
-@GraphWalker(value = "random(vertex_coverage(100))", start = "e_Init")
-~~~
+### Implementing a test (without real code)
 
-Using different combination, we can create different test types, like Smoke Test, Functional Test or a Stability Test to determine reliability and resource usage, but still using exactly the same model and code!
-
-### Smoke test example
-We can create a smoke test, a test that only verifies the basic flow of the model with following annotation:
-~~~
-@GraphWalker(value = "a_star(reached_vertexv_Browse))", start = "e_Init")
-~~~
-
-That would generate this test sequence:
-~~~
-e_Init
-v_ClientNotRunning
-e_StartClient
-v_LoginPrompted
-e_ValidPremiumCredentials
-v_Browse
-~~~
-
-To run the test, run following command:
-~~~
-%> mvn graphwalker:test
-~~~
-
-
-### Functional test example
-A functional test would explore the complete graph. 
-~~~
-@GraphWalker(value = "random(edge_coverage(100))", start = "e_Init")
-~~~
-
-### Stability test example
-A long ruining stability test would run for perhaps 10 hours.
-~~~
-@GraphWalker(value = "random(time_duration(36000))", start = "e_Init")
-~~~
-
-### Class implementing the interface
-Below is an example of a class implementing the interface of the Login model,
-
+Copy and paste following and save it as **SimpleTest.java** in folder **src/test/java/org/myorg/testautomation**:
 ~~~
 package org.myorg.testautomation;
 
-import org.graphwalker.java.annotation.GraphWalker;
+import org.graphwalker.core.condition.ReachedVertex;
+import org.graphwalker.core.generator.AStarPath;
+import org.graphwalker.core.machine.ExecutionContext;
+import org.graphwalker.java.test.TestBuilder;
+import org.junit.Test;
 
-@GraphWalker(value = "random(edge_coverage(100))", start = "e_Init")
-public class LoginRegressionTest implements Login {
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class SimpleTest extends ExecutionContext implements Login {
+    public final static Path MODEL_PATH = Paths.get("org/myorg/testautomation/Login.graphml");
     @Override
     public void e_InvalidCredentials() {
-        System.out.println("Your code here!");
+        System.out.println("e_InvalidCredentials: Insert test code here!");
     }
 
     @Override
     public void v_LoginPrompted() {
-        System.out.println("Your code here!");
+        System.out.println("v_LoginPrompted: Insert test code here!");
     }
 
     @Override
     public void e_ToggleRememberMe() {
-        System.out.println("Your code here!");
+        System.out.println("e_ToggleRememberMe: Insert test code here!");
     }
 
     @Override
     public void e_Exit() {
-        System.out.println("Your code here!");
+        System.out.println("e_Exit: Insert test code here!");
     }
 
     @Override
     public void e_ValidPremiumCredentials() {
-        System.out.println("Your code here!");
+        System.out.println("e_ValidPremiumCredentials: Insert test code here!");
     }
 
     @Override
     public void e_Close() {
-        System.out.println("Your code here!");
+        System.out.println("e_Close: Insert test code here!");
     }
 
     @Override
     public void e_Logout() {
-        System.out.println("Your code here!");
+        System.out.println("e_Logout: Insert test code here!");
     }
 
     @Override
-    public void v_WhatsNew() {
-        System.out.println("Your code here!");
+    public void e_Init() {
+        System.out.println("e_Init: Insert test code here!");
+    }
+
+    @Override
+    public void v_Browse() {
+        System.out.println("v_Browse: Insert test code here!");
     }
 
     @Override
     public void e_StartClient() {
-        System.out.println("Your code here!");
+        System.out.println("e_StartClient: Insert test code here!");
     }
 
     @Override
     public void v_ClientNotRunning() {
-        System.out.println("Your code here!");
+        System.out.println("v_ClientNotRunning: Insert test code here!");
     }
+
+    @Test
+    public void runSmokeTest() {
+        new TestBuilder()
+            .setModel(MODEL_PATH)
+            .setContext(new SimpleTest())
+            .setPathGenerator(new AStarPath(new ReachedVertex("v_Browse")))
+            .setStart("e_Init")
+            .execute();
+    }
+
+    @Test
+    public void runFunctionalTest() {
+        new TestBuilder()
+            .setModel(MODEL_PATH)
+            .setContext(new SimpleTest())
+            .setPathGenerator(new RandomPath(new EdgeCoverage(100)))
+            .setStart("e_Init")
+            .execute();
+    }
+
+    @Test
+    public void runStabilityTest() {
+        new TestBuilder()
+            .setModel(MODEL_PATH)
+            .setContext(new SimpleTest())
+            .setPathGenerator(new RandomPath(new TimeDuration(30, TimeUnit.SECONDS)))
+            .setStart("e_Init")
+            .execute();
+    }
+}
+~~~
+
+
+## Running the test
+
+The test above is implemented using the JUnit framework, so you invoke it running:
+~~~
+%> mvn test
+~~~
+
+All tests uses the same model, and the same code that implements the test. We have only changed the parameters passed on to GraphWalker. The parameters affects the traversing stratedgies and stop conditions for the tests.
+
+### Smoke test example
+Verifies the basic flow of the model. Using the A* algorithm, we create a straigth path from the starting point, **e_Init**, in the graph, to the vertex **v_Browse**.
+
+~~~
+@Test
+public void runSmokeTest() {
+    :
+    .setPathGenerator(new AStarPath(new ReachedVertex("v_Browse")))
+    :
+}
+~~~
+
+### Functional test example
+This is a test where GraphWalker covers the complete graph. It will start from **e_Init**, and end as soon as the stop condition is fulfilled. Which is is 100% coverage of all edges.
+
+~~~
+@Test
+public void runFunctionalTest() {
+    :
+    .setPathGenerator(new RandomPath(new EdgeCoverage(100)))
+    :
+}
+~~~
+
+
+### Stability test example
+We ask GraphWalker to randomly walk the model, until the stop condition is fulfilled. That will hapen when 30 seconds has passed. of course, in a real test, that migh be 30 minutes, or why not hours.
+
+~~~
+@Test
+public void runStabilityTest() {
+    :
+    .setPathGenerator(new RandomPath(new TimeDuration(30, TimeUnit.SECONDS)))
+    :
 }
 ~~~
 
