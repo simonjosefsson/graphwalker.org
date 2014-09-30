@@ -7,7 +7,7 @@ Description: This description will go in the meta description tag
 
 Complete command line syntax manual. For the easy of the readers eyes, the command:
 ~~~
-%> java -jar <path to graphwalker stanalone jar>/graphwalker-cli-3.0.0.jar
+%> java -jar <path to GraphWalker standalone jar>/graphwalker-cli-3.0.1-SNAPSHOT.jar
 ~~~
 is changed to the alias:
 ~~~
@@ -26,7 +26,7 @@ Default: OFF<br>
 Prints help text
 
 * --version -v<br>
-Prints the version of graphwalker
+Prints the version of GraphWalker
 
 ## offline
 

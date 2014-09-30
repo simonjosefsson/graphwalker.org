@@ -4,7 +4,7 @@ Description: This description will go in the meta description tag
 */
 
 ## GraphWalker 3 is here!
-The old site for GraphWalker 2 is here <a href="http://graphwalker.org/old_site/">graphwalker.org/old_site/</a> 
+The old site for GraphWalker 2 is here <a href="http://graphwalker.org/old_site/">graphwalker.org/old_site/</a>
 
 ## What is GraphWalker?
 
@@ -19,7 +19,7 @@ It's easy to design for test automation, even if you don't have any or little pr
 GraphWalker is very easy to setup and start using in your test automation code. It's is highly modularized, and it's easy to extend if you need to customize it.
 
 #### *For the team:*
-Modelling using a finite-state diagram is visual, it's easy to understand. Getting feed-back from team members and stakeholders is so much more easier with models.
+Modeling using a finite-state diagram is visual, it's easy to understand. Getting feed-back from team members and stakeholders is so much more easier with models.
 
 #### *For whoever pays the bills:*
 The models creates an abstraction layer between the test design and the implementing automation code. This is important when it comes to maintenance. Remember that the test automation (code and design) will have as long life time expectancy as the system under test. The return of investment is higher, if the test design and automation code is easy to work with and maintain. That's why it's so important with a good abstraction layer between design and implementation.

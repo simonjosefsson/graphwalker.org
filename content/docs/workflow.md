@@ -55,7 +55,7 @@ The above is a simple test. In fact, it's just one possible path through the mod
 * Exit the client
 * Testing invalid credentials
 * Enabling and disabling stored credentials (Remember Me)
-* Closing/cancelling the login dialog
+* Closing/canceling the login dialog
 
 The complete model could look something like below:
 
@@ -314,10 +314,10 @@ The test above is implemented using the JUnit framework, so you invoke it runnin
 %> mvn test
 ~~~
 
-All tests uses the same model, and the same code that implements the test. We have only changed the parameters passed on to GraphWalker. The parameters affects the traversing stratedgies and stop conditions for the tests.
+All tests uses the same model, and the same code that implements the test. We have only changed the parameters passed on to GraphWalker. The parameters affects the traversing strategies and stop conditions for the tests.
 
 ### Smoke test example
-Verifies the basic flow of the model. Using the A* algorithm, we create a straigth path from the starting point, **e_Init**, in the graph, to the vertex **v_Browse**.
+Verifies the basic flow of the model. Using the A* algorithm, we create a straight path from the starting point, **e_Init**, in the graph, to the vertex **v_Browse**.
 
 ~~~
 @Test
@@ -342,7 +342,7 @@ public void runFunctionalTest() {
 
 
 ### Stability test example
-We ask GraphWalker to randomly walk the model, until the stop condition is fulfilled. That will hapen when 30 seconds has passed. of course, in a real test, that migh be 30 minutes, or why not hours.
+We ask GraphWalker to randomly walk the model, until the stop condition is fulfilled. That will happen when 30 seconds has passed. of course, in a real test, that might be 30 minutes, or why not hours.
 
 ~~~
 @Test
