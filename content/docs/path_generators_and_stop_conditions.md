@@ -11,11 +11,11 @@ Path generators together with stop conditions will decide what strategy to use w
 
 A generator is an algorithm that decides how to traverse a model. Different generators will generate different test sequences, and they will navigate in different ways. Multiple generators can be daisy chained, concatenated. 
 
-### random( *<some stop condition(s)>* )
+### random( *some stop condition(s)* )
 
 Navigate through the model in a completely random manor. Also called "Drunkard’s walk", or "Random walk". This algorithm selects an out-edge from a vertex by random, and repeats the process in the next vertex.
 
-### quick_random( *<some stop condition(s)>* )
+### quick_random( *some stop condition(s)* )
 
 Tries to run the shortest path through a model, but in a fast fashion. This is how the algorithm works:
 
@@ -25,7 +25,7 @@ Tries to run the shortest path through a model, but in a fast fashion. This is h
 4. When reaching the selected edge in step 1, start all over, repeating steps 1->4.<br>
 5. The algorithm works well an very large models, and generates reasonably short sequences. The downside is when used in conjunction with ESFM. The algorithm can choose a path which is blocked by a guard.
 
-### a_star( *<a stop condition that names a vertex aor an edge>* )
+### a_star( *a stop condition that names a vertex aor an edge* )
 
 Will generate the shortest path to a specific vertex or edge.
 
@@ -36,23 +36,23 @@ Will calculate and generate the shortest path through the model. The cost for ev
 <br>
 ## ***Stop conditions***
 
-### edge_coverage( *<an integer representing percentage of desired edge coverage>* )
+### edge_coverage( *an integer representing percentage of desired edge coverage* )
 
 The stop criteria is a percentage number. When, during execution, the percentage of traversed edges is reached, the test is stopped. If an edge is traversed more than one time, it still counts as 1, when calculating the percentage coverage.
 
-### vertex_coverage( *<an integer representing percentage of desired vertex coverage>* )
+### vertex_coverage( *an integer representing percentage of desired vertex coverage* )
 
 The stop criteria is a percentage number. When, during execution, the percentage of traversed states is reached, the test is stopped. If vertex is traversed more than one time, it still counts as 1, when calculating the percentage coverage.
 
-### reached_vertex( *<the name of the vertex to reach>* )
+### reached_vertex( *the name of the vertex to reach* )
 
 The stop criteria is a named vertex. When, during execution, the vertex is reached, the test is stopped.
 
-### reached_edge( *<the name of the edge to reach>* )
+### reached_edge( *<he name of the edge to reach* )
 
 The stop criteria is a named edge. When, during execution, the edge is reached, the test is stopped.
 
-### time_duration( *<an integer representing the number of seconds to run>* )
+### time_duration( *an integer representing the number of seconds to run* )
 
 The stop criteria is a time, representing the number of seconds that the test generator is allowed to execute.
 
