@@ -14,3 +14,8 @@ Description: This description will go in the meta description tag
 * [GraphWalker modelling syntax](/docs/gw_model_syntax)
 * [Command line syntax](/docs/command_line_syntax)
 * [Path generators and stop conditions](/docs/path_generators_and_stop_conditions)
+
+<h2>
+
+#### Missing anything?
+If there's documentation you miss. If existing doc are wrong, or the english is bad or has typos, please let us know! Tell us by submitting an issue to [https://github.com/GraphWalker/graphwalker.org/issues](https://github.com/GraphWalker/graphwalker.org/issues)
