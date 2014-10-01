@@ -7,3 +7,10 @@ Description: Contact page for GraphWalker
 
 * [Nils Olsson](https://github.com/nilols)
 * [Kristian Karl](https://github.com/KristianKarl)
+
+## Feedback
+Any open issues can be found here: [GraphWalker open Issues](https://github.com/organizations/GraphWalker/dashboard/issues)
+
+If you want to report an issue,or ask a question, do that by submitting it to any repository in [https://github.com/GraphWalker/](https://github.com/GraphWalker/). For example:
+* [https://github.com/GraphWalker/graphwalker-core/issues](https://github.com/GraphWalker/graphwalker-core/issues)
+* [https://github.com/GraphWalker/graphwalker-cli/issues](https://github.com/GraphWalker/graphwalker-cli/issues)
