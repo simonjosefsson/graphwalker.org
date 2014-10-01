@@ -25,7 +25,7 @@ Tries to run the shortest path through a model, but in a fast fashion. This is h
 4. When reaching the selected edge in step 1, start all over, repeating steps 1->4.<br>
 5. The algorithm works well an very large models, and generates reasonably short sequences. The downside is when used in conjunction with ESFM. The algorithm can choose a path which is blocked by a guard.
 
-### a_star( *a stop condition that names a vertex aor an edge* )
+### a_star( *a stop condition that names a vertex or an edge* )
 
 Will generate the shortest path to a specific vertex or edge.
 
