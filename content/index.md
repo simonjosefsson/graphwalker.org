@@ -27,7 +27,7 @@ The models creates an abstraction layer between the test design and the implemen
 ## How to get it?
 Either download the standalone jar file, or include it directly in you java project.
 
-* [Download the stand-alone graphwalker.jar](/archive/graphwalker-cli-3.0.1-SNAPSHOT.jar)
+* [Download the stand-alone graphwalker.jar](/archive/graphwalker-cli-3.0.1-SNAPSHOT.jar), read the doc [Command line syntax](/docs/command_line_syntax)
 
 ## Maven
 Version 3.0.0 is the latest release. In your maven project. Add this to your pom.file
