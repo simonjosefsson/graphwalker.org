@@ -48,7 +48,7 @@ The stop criteria is a percentage number. When, during execution, the percentage
 
 The stop criteria is a named vertex. When, during execution, the vertex is reached, the test is stopped.
 
-### reached_edge( *<he name of the edge to reach* )
+### reached_edge( *the name of the edge to reach* )
 
 The stop criteria is a named edge. When, during execution, the edge is reached, the test is stopped.
 
