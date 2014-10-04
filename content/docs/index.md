@@ -21,7 +21,6 @@ Description: This description will go in the meta description tag
 * [io](/archive/apidocs/io/index.html)
 * [java](/archive/apidocs/java/index.html)
 * [maven-plugin](/archive/apidocs/maven-plugin/index.html)
-* [maven-archetype](/archive/apidocs/maven-archetype/index.html)
 * [cli](/archive/apidocs/cli/index.html)
 
 <br>
