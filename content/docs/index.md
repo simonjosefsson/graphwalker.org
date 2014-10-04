@@ -15,7 +15,16 @@ Description: This description will go in the meta description tag
 * [Command line syntax](/docs/command_line_syntax)
 * [Path generators and stop conditions](/docs/path_generators_and_stop_conditions)
 
-<br><br>
+### Java Doc API
+* [core](/archive/apidocs/core/index.html)
+* [dsl](/archive/apidocs/dsl/index.html)
+* [io](/archive/apidocs/io/index.html)
+* [java](/archive/apidocs/java/index.html)
+* [maven-plugin](/archive/apidocs/maven-plugin/index.html)
+* [maven-archetype](/archive/apidocs/maven-archetype/index.html)
+* [cli](/archive/apidocs/cli/index.html)
+
+<br>
 ---------------------------------------
 
 #### Missing anything?

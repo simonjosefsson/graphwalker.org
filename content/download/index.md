@@ -5,5 +5,9 @@ Description: The download page for GraphWalker
 
 ## Download
 
-### Latest developer version
-* [graphwalker.jar](/archive/graphwalker.jar)
+### Standalone jar
+* [Latest standalone CLI](/archive/graphwalker.jar)
+
+### Source code
+* [GraphWalker at GitHub](https://github.com/GraphWalker)
+
