@@ -16,12 +16,12 @@ Description: This description will go in the meta description tag
 * [Path generators and stop conditions](/docs/path_generators_and_stop_conditions)
 
 ### Java Doc API
-* [core](/archive/apidocs/core/index.html)
-* [dsl](/archive/apidocs/dsl/index.html)
-* [io](/archive/apidocs/io/index.html)
-* [java](/archive/apidocs/java/index.html)
-* [maven-plugin](/archive/apidocs/maven-plugin/index.html)
-* [cli](/archive/apidocs/cli/index.html)
+* [core - The core functionality](/archive/apidocs/core/index.html)
+* [dsl - The text parsing logic](/archive/apidocs/dsl/index.html)
+* [io - Handles input and output](/archive/apidocs/io/index.html)
+* [java - GraphWalker annotation and source code generation](/archive/apidocs/java/index.html)
+* [maven-plugin - Maven build goals for GraphWalker](/archive/apidocs/maven-plugin/index.html)
+* [cli - The command line interface for GraphWalker](/archive/apidocs/cli/index.html)
 
 <br>
 ---------------------------------------
