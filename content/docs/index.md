@@ -15,6 +15,9 @@ Description: This description will go in the meta description tag
 * [Command line syntax](/docs/command_line_syntax)
 * [Path generators and stop conditions](/docs/path_generators_and_stop_conditions)
 
+### How to's
+* [How to submit a patch to graphwalker](/docs/how_to_submit_a_patch_to_graphwalker)
+
 ### Java Doc API
 * [core - The core functionality](/archive/apidocs/core/index.html)
 * [dsl - The text parsing logic](/archive/apidocs/dsl/index.html)
