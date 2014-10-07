@@ -16,8 +16,9 @@ Description: This description will go in the meta description tag
 * [Path generators and stop conditions](/docs/path_generators_and_stop_conditions)
 
 ### How to's
-* [How to submit a patch to graphwalker](/docs/how_to_submit_a_patch_to_graphwalker)
-
+* [How to submit a patch to GraphWalker](/docs/how_to_submit_a_patch_to_graphwalker)
+* [How to run GraphWalker tests withC#](/docs/how_to_run_tests_with_c_sharp)
+* 
 ### Java Doc API
 * [core - The core functionality](/archive/apidocs/core/index.html)
 * [dsl - The text parsing logic](/archive/apidocs/dsl/index.html)
