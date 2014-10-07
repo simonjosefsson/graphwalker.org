@@ -18,7 +18,10 @@ Description: This description will go in the meta description tag
 ### How to's
 * [How to submit a patch to GraphWalker](/docs/how_to_submit_a_patch_to_graphwalker)
 * [How to run GraphWalker tests withC#](/docs/how_to_run_tests_with_c_sharp)
-* 
+
+### Articles
+* [Combining different stop conditions](/docs/combining_different_stop_conditions)
+
 ### Java Doc API
 * [core - The core functionality](/archive/apidocs/core/index.html)
 * [dsl - The text parsing logic](/archive/apidocs/dsl/index.html)
