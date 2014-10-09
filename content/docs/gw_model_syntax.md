@@ -50,7 +50,7 @@ A label is all the text associated to and edge or a vertex.
   <figcaption>Vertex and edge names</figcaption>
 </figure>
 
-### Guards
+### Guards - Only for an edge
 Guards are a mechanism only associated to edges. Their role are the same as an if-statement, and makes an edge eligible or not for being walked.
 
 The guard is a conditional expression enclosed between square brackets:
@@ -59,8 +59,8 @@ The guard is a conditional expression enclosed between square brackets:
 ~~~ 
 The above means that if the attribute loggedIn equals to true, the edge is accessible.
 
-### Action
-This is java script code that we want to execute in the model. It's placed after a forward slash. Each statement must be ended with a semicolon.
+### Action - Only for an edge
+Actions are a mechanisms only associated to edges. This is java script code that we want to execute in the model. It's placed after a forward slash. Each statement must be ended with a semicolon.
 ~~~
 /loggedIn=false; rememberMe=true;
 ~~~
