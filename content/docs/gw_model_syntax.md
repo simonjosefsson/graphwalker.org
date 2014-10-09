@@ -37,6 +37,7 @@ This section will talk about the modeling rules using yEd with ***GraphWalker***
 * The **Start** vertex is not mandatory.
 * If used, there must be 1 (and only 1) vertex with the name: **Start** in a model.
 * There can only be 1 out-edge from the Start vertex.
+* The **Start** vertex will no be included in any generated path.
  
 ### Name of a vertex or edge
 The name is the first word, on the first line in a label for an edge or vertex.
