@@ -3,7 +3,7 @@ Title: Graph in JSON
 Description: This description will go in the meta description tag
 */
 
-# The graph in JSON
+# The graph in JSON (from version 3.2.0)
 
 ## type
 The message type is **loadModel**. Message types defines what type of information this message carries.
