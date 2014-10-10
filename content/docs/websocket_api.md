@@ -10,7 +10,7 @@ Start GraphWalker from the command line using the standalone jar, using the **on
 ~~~
 java -jar graphwalker-3.2.0-SNAPSHOT.jar -d ALL online -p 8887
 ~~~
-Starts the WebSocker server on localhost, listing on port 8887
+Starts the WebSocker server, with full debug logging, on localhost, listing on port 8887
 
 A client may connect to ws://hostname:port. See [Java WebSocket Client example](https://github.com/GraphWalker/graphwalker-example/tree/3.2.0/java-websocket)
 
