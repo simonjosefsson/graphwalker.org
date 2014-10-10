@@ -24,7 +24,7 @@ The first model loaded, will be the one where the execution starts.
 Several models can be loaded. Every model which is loaded, will have it's own context in the machine.
  
 ### Request
-For the request, see [The graph in JSON](docs/json_graph)
+For the request, see [The graph in JSON](json_graph)
 
 ### Response
 ~~~
