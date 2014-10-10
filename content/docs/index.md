@@ -14,12 +14,12 @@ Description: This description will go in the meta description tag
 * [GraphWalker modelling syntax](/docs/gw_model_syntax)
 * [Command line syntax](/docs/command_line_syntax)
 * [Path generators and stop conditions](/docs/path_generators_and_stop_conditions)
-* [Graph in JSON](/docs/json_grap)
-* [GraphWalker WebSocket Messages API](/docs/websocket_api)
+* [Graph in JSON](/docs/json_grap) (from version 3.2.0)
+* [GraphWalker WebSocket Messages API](/docs/websocket_api) (from version 3.2.0)
 
 ### How to's
 * [How to submit a patch to GraphWalker](/docs/how_to_submit_a_patch_to_graphwalker)
-* [How to run GraphWalker tests withC#](/docs/how_to_run_tests_with_c_sharp)
+* [How to run GraphWalker tests withC#](/docs/how_to_run_tests_with_c_sharp) (from version 3.2.0)
 
 ### Articles
 * [Combining different stop conditions](/docs/combining_different_stop_conditions)
