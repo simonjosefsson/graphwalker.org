@@ -5,6 +5,9 @@ Description: This description will go in the meta description tag
 
 # GraphWalker WebSopcket API (from version 3.2.0)
 
+The GraphWalker WebSocket Server enables a user to launch and interact with GraphWalker and inplement your tests in a very dynamic way. Any programming language that has an implementation of WebSocket will be able to use this feature.
+
+
 ## Establishing a connection to the GraphWalker WebSocket Server
 Start GraphWalker from the command line using the standalone jar, using the **online** command.
 ~~~
@@ -148,3 +151,7 @@ When the graph is executed by the server, it will send updates regarding the mod
     "visitedCount": "<The number of times GraphWalker has visited (passed) this element>
 }
 ~~~
+
+## MBT test for the WebSocket Server
+
+<img src="/content/images/websocket_api.png" alt="WebSocket API">
