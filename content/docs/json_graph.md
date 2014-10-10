@@ -5,6 +5,39 @@ Description: This description will go in the meta description tag
 
 # The graph in JSON
 
+## type
+The message type is **loadModel**
+
+## model
+### model.name
+The name of the model
+### model.generator
+The generator(s) and the stop condition(s) asscoiated with this model. See also: [Path generators and stop conditions](/docs/path_generators_and_stop_conditions)
+### model.vertices
+A list of the vertices in the model.
+#### model.vertices[].name
+The name of the vertex
+#### model.vertices[].id
+The unique id of the vertex
+#### model.vertices[].startElement
+This sets the current vertex as the starting element in the graph. This is where the execution starts.
+### model.edges
+A list of the edges in the model.
+#### model.edges[].name
+The name of the edge
+#### model.edges[].id
+The unique id of the edge
+#### model.edges[].srcVertexId
+The source vertex id of the edge. The id must exist in the model.vertices[]
+#### model.edges[].dstVertexId
+The destination vertex id of the edge. The id must exist in the model.vertices[]
+#### model.edges[].startElement
+This sets the current edge as the starting element in the graph. This is where the execution starts.
+#### model.edges[].actions
+A list of actiona that should be executed when the edge is visited. The default is javascript.
+#### model.edges[].actions[].action
+The actions. It represents 1 javascript statement. The statement must be terminated with a semicolon
+
 ~~~
 {  
    "type":"loadModel",
