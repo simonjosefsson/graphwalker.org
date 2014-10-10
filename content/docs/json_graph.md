@@ -6,7 +6,7 @@ Description: This description will go in the meta description tag
 # The graph in JSON
 
 ## type
-The message type is **loadModel**
+The message type is **loadModel**. Message types defines what type of information this message carries.
 
 ## model
 ### model.name
@@ -38,6 +38,7 @@ A list of actiona that should be executed when the edge is visited. The default 
 #### model.edges[].actions[].action
 The actions. It represents 1 javascript statement. The statement must be terminated with a semicolon
 
+# Example
 ~~~
 {  
    "type":"loadModel",
