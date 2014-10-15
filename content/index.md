@@ -13,7 +13,7 @@ It's a Model-Based testing tool built in Java. It reads models in the shape of f
 <img src="/content/images/Login-small.png" alt="Model" align="left">
 
 #### *For the tester:*
-It's easy to design for test automation, even if you don't have any or little programming skills. The modeling syntax is very simple, and people can get started in less than an hour. The most common use cases for GraphWalker are automated end user acceptance tests, or any tests with workflows in them. Designing a decent set of regression tests using GraphWalker is a breeze.
+It's easy to design for test automation, even if you don't have any or little programming skills. The [modeling syntax](/docs/gw_model_syntax) is very simple, and people can get started in less than an hour. The most common use cases for GraphWalker are automated end user acceptance tests, or any tests with workflows in them. Designing a decent set of regression tests using GraphWalker is a breeze.
 
 #### *For the test automation developer:*
 GraphWalker is very easy to setup and start using in your test automation code. It's is highly modularized, and it's easy to extend if you need to customize it.
