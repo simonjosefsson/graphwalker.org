@@ -157,4 +157,6 @@ When the graph is executed by the server, it will send updates regarding the mod
 
 The graph below is an actual test where GraphWalker is testing itself. The test design is also serves as a [Specifaction by Example](http://en.wikipedia.org/wiki/Specification_by_example). The sepcification dictates what API calls can be made given the current status. The test verifies that the implementation follows the design.
 
+The test is run as one of the Unit tests in the CLI module. See [GraphWalkerWebSocketServerTest.java](https://github.com/GraphWalker/graphwalker-cli/blob/3.2.0/src/test/java/org/graphwalker/cli/GraphWalkerWebSocketServerTest.java)
+
 <img src="/content/images/websocket_api.png" alt="WebSocket API">
