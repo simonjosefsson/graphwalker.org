@@ -16,7 +16,7 @@ java -jar graphwalker-3.2.0-SNAPSHOT.jar -d ALL online -p 8887
 Starts the WebSocker server, with full debug logging, on localhost, listing on port 8887<br>
 Download it from [Latest dev standalone CLI - branch 3.2.0](/archive/graphwalker-cli-3.2.0-SNAPSHOT.jar)
 
-A client may connect to ws://hostname:port. See [Java WebSocket Client example](https://github.com/GraphWalker/graphwalker-example/tree/3.2.0/java-websocket)
+A client may connect to ws://hostname:port. See [Java WebSocket Client example](https://github.com/GraphWalker/graphwalker-example/tree/3.2.0/java-websocket) and the last section in this article.
 
 When connected, a GraphWalker machine will be created on the server, which will serve this client only.
 When disconnected, the server will destroy the machine.
@@ -153,6 +153,8 @@ When the graph is executed by the server, it will send updates regarding the mod
 }
 ~~~
 
-## MBT test for the WebSocket Server
+## Spefification by Example and MBT test for the WebSocket Server
+
+The graph below is an actual test where GraphWalker is testing itself. The test design is also serves as a [Specifaction by Example](http://en.wikipedia.org/wiki/Specification_by_example). The sepcification dictates what API calls can be made given the current status. The test verifies that the implementation follows the design.
 
 <img src="/content/images/websocket_api.png" alt="WebSocket API">
