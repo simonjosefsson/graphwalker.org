@@ -6,7 +6,8 @@ Description: The download page for GraphWalker
 ## Download
 
 ### Standalone jar
-* [Latest standalone CLI](/archive/graphwalker.jar)<br>
+* [Latest stable standalone CLI - branch master](/archive/graphwalker.jar)<br>
+* [Latest dev standalone CLI - branch 3.2.0](/archive/graphwalker-cli-3.2.0-SNAPSHOT.jar)<br>
   Have a look at the [documentation](/docs/command_line_syntax)
 
 ### Source code
