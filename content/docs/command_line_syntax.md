@@ -7,14 +7,14 @@ Description: This description will go in the meta description tag
 
 Complete command line syntax manual. To make it easier to read, the command:
 ~~~
-%> java -jar <path to GraphWalker standalone jar>/graphwalker-cli-3.0.1-SNAPSHOT.jar
+%> java -jar <path to GraphWalker standalone jar>/graphwalker-cli-3.N.N-SNAPSHOT.jar
 ~~~
 is a bash script:
 ~~~
 %> cat $(which gw3)
 #!/bin/bash
 
-java -jar /home/krikar/dev/mbt/gw3/graphwalker-cli/target/graphwalker-cli-3.0.1-SNAPSHOT.jar "$@"
+java -jar /home/krikar/dev/mbt/gw3/graphwalker-cli/target/graphwalker-cli-3.N.N-SNAPSHOT.jar "$@"
 ~~~
 
 ## Global options
