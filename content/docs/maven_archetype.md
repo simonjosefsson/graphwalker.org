@@ -17,7 +17,7 @@ This will show how to create a boilerplate GraphWalker project using the maven a
 ## Create a boilerplate project
 From the command line, run:
 ~~~
-%> mvn archetype:generate -B -DarchetypeGroupId=org.graphwalker -DarchetypeArtifactId=graphwalker-maven-archetype -DarchetypeVersion=3.0.1-SNAPSHOT -DgroupId=com.company -DartifactId=myProject
+%> mvn archetype:generate -B -DarchetypeGroupId=org.graphwalker -DarchetypeArtifactId=graphwalker-maven-archetype -DgroupId=com.company -DartifactId=myProject
 ~~~
 Move into the myProject folder, and test the project:
 ~~~
