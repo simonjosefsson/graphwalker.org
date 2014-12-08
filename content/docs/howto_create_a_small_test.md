@@ -164,7 +164,7 @@ Also, copy and paste following into ***pom.xml***
         <dependency>
             <groupId>org.graphwalker</groupId>
             <artifactId>graphwalker-core</artifactId>
-	    <version>3.0.0</version>
+	    <version>3.1.1</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
