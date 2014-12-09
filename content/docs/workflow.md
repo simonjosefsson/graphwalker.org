@@ -63,35 +63,59 @@ The complete model could look something like below:
 
 Before venturing into the test coding part, we need to verify whether the model is correct according to GraphWalker syntax rules. [See GraphWalker modeling syntax](/docs/gw_model_syntax)
 
+Download the model above by right-clicking on it, then select "Save link as...". Save it as Login.graphml.
+
 To verify the model, we use the GraphWalker CLI to test it:
 ~~~
 %> java -jar graphwalker.java offline -m Login.graphml "random(edge_coverage(100))"
-{"CurrentElementName":"e_Init"}
-{"CurrentElementName":"v_ClientNotRunning"}
-{"CurrentElementName":"e_StartClient"}
-{"CurrentElementName":"v_LoginPrompted"}
-{"CurrentElementName":"e_InvalidCredentials"}
-{"CurrentElementName":"v_LoginPrompted"}
-{"CurrentElementName":"e_ValidPremiumCredentials"}
-{"CurrentElementName":"v_Browse"}
-{"CurrentElementName":"e_Exit"}
-{"CurrentElementName":"v_ClientNotRunning"}
-{"CurrentElementName":"e_StartClient"}
-{"CurrentElementName":"v_Browse"}
-{"CurrentElementName":"e_Logout"}
-{"CurrentElementName":"v_LoginPrompted"}
-{"CurrentElementName":"e_InvalidCredentials"}
-{"CurrentElementName":"v_LoginPrompted"}
-{"CurrentElementName":"e_InvalidCredentials"}
-{"CurrentElementName":"v_LoginPrompted"}
-{"CurrentElementName":"e_ToggleRememberMe"}
-{"CurrentElementName":"v_LoginPrompted"}
-{"CurrentElementName":"e_ToggleRememberMe"}
-{"CurrentElementName":"v_LoginPrompted"}
-{"CurrentElementName":"e_Close"}
-{"CurrentElementName":"v_ClientNotRunning"}
+e_Init
+v_ClientNotRunning
+e_StartClient
+v_LoginPrompted
+e_InvalidCredentials
+v_LoginPrompted
+e_ValidPremiumCredentials
+v_Browse
+e_Logout
+v_LoginPrompted
+e_Close
+v_ClientNotRunning
+e_StartClient
+v_LoginPrompted
+e_Close
+v_ClientNotRunning
+e_StartClient
+v_LoginPrompted
+e_Close
+v_ClientNotRunning
+e_StartClient
+v_LoginPrompted
+e_Close
+v_ClientNotRunning
+e_StartClient
+v_LoginPrompted
+e_InvalidCredentials
+v_LoginPrompted
+e_ValidPremiumCredentials
+v_Browse
+e_Exit
+v_ClientNotRunning
+e_StartClient
+v_LoginPrompted
+e_ValidPremiumCredentials
+v_Browse
+e_Exit
+v_ClientNotRunning
+e_StartClient
+v_LoginPrompted
+e_ToggleRememberMe
+v_LoginPrompted
+e_Close
+v_ClientNotRunning
+e_StartClient
+v_Browse
 ~~~
-A JSON formatted test sequence is generated. This is an offline generated test. No errors or other warning messages are generated, which means that the model is correct.
+A test sequence is generated. This is an offline generated test. No errors or other warning messages are generated, which means that the model is correct.
 
 ## Creating the test code
 Using Maven and the complete model above create all the stub code needed.
@@ -103,7 +127,10 @@ Using Maven and the complete model above create all the stub code needed.
 %> mkdir -p login/src/main/resources/org/myorg/testautomation
 %> mkdir -p login/src/test/java/org/myorg/testautomation
 ~~~
-2. Click on the complete Login model above, and save it to **login/src/main/resources/org/myorg/testautomation** as Login.graphml.
+2. Move the saved model:
+~~~
+%> mv Login.graphml login/src/main/resources/org/myorg/testautomation
+~~~
 3. Copy and paste following and save it as pom.xml in **login** folder.
 ~~~
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -113,7 +140,7 @@ Using Maven and the complete model above create all the stub code needed.
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.myorg</groupId>
-    <version>3.0.1-SNAPSHOT</version>
+    <version>3.1.1</version>
     <artifactId>example</artifactId>
     <name>GraphWalker Test</name>
 
@@ -206,14 +233,18 @@ Copy and paste following and save it as **SimpleTest.java** in folder **src/test
 ~~~
 package org.myorg.testautomation;
 
+import org.graphwalker.core.condition.EdgeCoverage;
 import org.graphwalker.core.condition.ReachedVertex;
+import org.graphwalker.core.condition.TimeDuration;
 import org.graphwalker.core.generator.AStarPath;
+import org.graphwalker.core.generator.RandomPath;
 import org.graphwalker.core.machine.ExecutionContext;
 import org.graphwalker.java.test.TestBuilder;
 import org.junit.Test;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.concurrent.TimeUnit;
 
 public class SimpleTest extends ExecutionContext implements Login {
     public final static Path MODEL_PATH = Paths.get("org/myorg/testautomation/Login.graphml");
