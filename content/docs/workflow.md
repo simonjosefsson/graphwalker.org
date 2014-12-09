@@ -227,7 +227,9 @@ Using Maven and the complete model above create all the stub code needed.
 
 The last command will automatically generate an interface of the model in Login.graphml.The interface is found in the folder **target/generated-sources/graphwalker/**. Your job is now to implement that interface, which means filling in the missing code into the methods in the class that implements the interface. First you have to find the right tool for the job. I would suggest [Sikuli](http://www.sikuli.org/).
 
-### Implementing a test (without real code)
+### Implementing a test
+
+The code below is a stub. It does not interact with any real system under test. The lines containing the **System.out.println** inidicates where code that interacts with a system under test should end up.
 
 Copy and paste following and save it as **SimpleTest.java** in folder **src/test/java/org/myorg/testautomation**:
 ~~~
