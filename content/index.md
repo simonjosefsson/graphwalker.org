@@ -27,16 +27,16 @@ The models creates an abstraction layer between the test design and the implemen
 ## How to get it?
 Either download the standalone jar file, or include it directly in you java project.
 
-* [Download the latest stand-alone graphwalker.jar](/archive/graphwalker.jar), read the [Command line syntax doc](/docs/command_line_syntax)
+* [Download the latest release graphwalker command line tool](/archive/graphwalker-cli-3.2.0.jar), read the [Command line syntax doc](/docs/command_line_syntax)
 
 ## Maven
-Version 3.1.1 is the latest release. In your maven project. Add this to your pom.file
+Version 3.2.0 is the latest release. In your maven project. Add this to your pom.file
 
 <pre>
 <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>dependency</span><span style='color:#a65700; '>></span>
    <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>groupId</span><span style='color:#a65700; '>></span>org.graphwalker<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>groupId</span><span style='color:#a65700; '>></span>
    <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>artifactId</span><span style='color:#a65700; '>></span>graphwalker-core<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>artifactId</span><span style='color:#a65700; '>></span>
-   <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>version</span><span style='color:#a65700; '>></span>3.1.1<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>version</span><span style='color:#a65700; '>></span>
+   <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>version</span><span style='color:#a65700; '>></span>3.2.0<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>version</span><span style='color:#a65700; '>></span>
 <span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>dependency</span><span style='color:#a65700; '>></span>
 </pre>
 

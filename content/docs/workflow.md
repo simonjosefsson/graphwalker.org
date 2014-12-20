@@ -67,7 +67,7 @@ Download the model above by right-clicking on it, then select "Save link as...".
 
 To verify the model, we use the GraphWalker CLI to test it:
 ~~~
-%> java -jar graphwalker.java offline -m Login.graphml "random(edge_coverage(100))"
+%> java -jar graphwalker.jar offline -m Login.graphml "random(edge_coverage(100))"
 e_Init
 v_ClientNotRunning
 e_StartClient
@@ -140,7 +140,7 @@ Using Maven and the complete model above create all the stub code needed.
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.myorg</groupId>
-    <version>3.1.1</version>
+    <version>3.2.0</version>
     <artifactId>example</artifactId>
     <name>GraphWalker Test</name>
 
