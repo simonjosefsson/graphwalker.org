@@ -225,13 +225,47 @@ Using Maven and the complete model above create all the stub code needed.
 %> mvn graphwalker:generate-sources
 ~~~
 
-The last command will automatically generate an interface of the model in Login.graphml.The interface is found in the folder **target/generated-sources/graphwalker/**. Your job is now to implement that interface, which means filling in the missing code into the methods in the class that implements the interface. First you have to find the right tool for the job. I would suggest [Sikuli](http://www.sikuli.org/).
+The last command will automatically generate an interface of the model in Login.graphml.The interface is found in the folder **target/generated-sources/graphwalker/**. 
+
+If you check your folder, it willl contain following files and folders:
+~~~
+%> find .
+.
+./pom.xml
+./target
+./target/generated-sources
+./target/generated-sources/graphwalker
+./target/generated-sources/graphwalker/org
+./target/generated-sources/graphwalker/org/myorg
+./target/generated-sources/graphwalker/org/myorg/testautomation
+./target/generated-sources/graphwalker/org/myorg/testautomation/Login.java
+./src
+./src/main
+./src/main/java
+./src/main/java/org
+./src/main/java/org/myorg
+./src/main/java/org/myorg/testautomation
+./src/main/resources
+./src/main/resources/org
+./src/main/resources/org/myorg
+./src/main/resources/org/myorg/testautomation
+./src/main/resources/org/myorg/testautomation/Login.graphml
+./src/test
+./src/test/java
+./src/test/java/org
+./src/test/java/org/myorg
+./src/test/java/org/myorg/testautomation
+~~~
+
+Your job is now to implement that interface, which means filling in the missing code into the methods in the class that implements the interface. First you have to find the right tool for the job. Dependeing on you System Under Test(SUT) , it could typically be::
+ * [Selenium Web Driver](http://www.seleniumhq.org/): if your SUT is a web broser
+ * [Sikuli](http://www.sikuli.org/): if your SUT is a desktop native GUI client, wher you dont have access to it's source code.
 
 ### Implementing a test
 
 The code below is a stub. It does not interact with any real system under test. The lines containing the **System.out.println** inidicates where code that interacts with a system under test should end up.
 
-Copy and paste following and save it as **SimpleTest.java** in folder **src/test/java/org/myorg/testautomation**:
+Copy and paste following and save it as **src/test/java/org/myorg/testautomation/SimpleTest.java**:
 ~~~
 package org.myorg.testautomation;
 
@@ -338,7 +372,7 @@ public class SimpleTest extends ExecutionContext implements Login {
 ~~~
 
 
-## Running the test
+## Running the test : PLEASE WE HAVE A BUG HERE WHICH NEEDS TO BE FIXED! ETA FOR FIX JANUARY 14
 
 The test above is implemented using the JUnit framework, so you invoke it running:
 ~~~
