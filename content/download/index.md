@@ -19,8 +19,8 @@ Description: The download page for GraphWalker
  * [io - Handles input and output](https://github.com/GraphWalker/graphwalker-project/tree/master/graphwalker-io)
  * [java - GraphWalker annotation and source code generation](https://github.com/GraphWalker/graphwalker-project/tree/master/graphwalker-java)
  * [maven-plugin-archetype - Create graphalker boilerplate maven projects](https://github.com/GraphWalker/graphwalker-project/tree/master/graphwalker-maven-archetype)
-* [maven-plugin - Maven build goals for GraphWalker](https://github.com/GraphWalker/graphwalker-project/tree/master/graphwalker-maven-plugin)
-* [studio ](https://github.com/GraphWalker/graphwalker-project/tree/master/graphwalker-studio)
+ * [maven-plugin - Maven build goals for GraphWalker](https://github.com/GraphWalker/graphwalker-project/tree/master/graphwalker-maven-plugin)
+ * [studio ](https://github.com/GraphWalker/graphwalker-project/tree/master/graphwalker-studio)
 
 ### Status of the master branch
 [![Build Status](https://travis-ci.org/GraphWalker/graphwalker-project.svg?branch=master)](https://travis-ci.org/GraphWalker/graphwalker-project)
