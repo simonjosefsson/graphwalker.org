@@ -20,4 +20,4 @@ Description: The download page for GraphWalker
  * [cli - The command line interface for GraphWalker](https://github.com/GraphWalker/graphwalker-cli)
 
 ### Status of the master branch
-graphwalker-project [![Build Status](https://travis-ci.org/GraphWalker/graphwalker-project.svg?branch=master)](https://travis-ci.org/GraphWalker/graphwalker-project)
+[![Build Status](https://travis-ci.org/GraphWalker/graphwalker-project.svg?branch=master)](https://travis-ci.org/GraphWalker/graphwalker-project)
