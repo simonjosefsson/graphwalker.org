@@ -259,7 +259,7 @@ If you check your folder, it willl contain following files and folders:
 
 Your job is now to implement that interface, which means filling in the missing code into the methods in the class that implements the interface. First you have to find the right tool for the job. Dependeing on you System Under Test(SUT) , it could typically be::
  * [Selenium Web Driver](http://www.seleniumhq.org/): if your SUT is a web broser
- * [Sikuli](http://www.sikuli.org/): if your SUT is a desktop native GUI client, wher you dont have access to it's source code.
+ * [Sikuli](http://www.sikuli.org/): if your SUT is a desktop native GUI client, where you dont have access to it's source code.
 
 ### Implementing a test
 
