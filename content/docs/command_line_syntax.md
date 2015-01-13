@@ -21,7 +21,7 @@ java -jar /home/krikar/dev/mbt/gw3/graphwalker-cli/target/graphwalker-cli-3.N.N-
 
 The global options affect all commands. Some options, like version, exits the program directly.
 
-* --debug, -g<br>
+* --debug, -d<br>
 Sets the log level: OFF, ERROR, WARN, INFO, DEBUG, TRACE, ALL.
 Default: OFF<br>
 
