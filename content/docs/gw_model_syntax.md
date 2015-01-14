@@ -14,7 +14,7 @@ The objective of the model, is to express the expected behavior of the system un
 
 For example, let's take a web site that requires authentication before we can access the sites content. Designing a test, using a directed graph, it might look like this:
 
-![alt text](https://raw.githubusercontent.com/GraphWalker/graphwalker-project/master/graphwalker-cli/doc/img/example1.jpg "Simple example 1")
+![alt text](/content/images/example1.jpg "Simple example 1")
 
 ### Vertex
 A vertex represents an expected state that we want to examine. In any implementing code/test, there is where you'll find the assertions, or the [oracles].
@@ -32,7 +32,7 @@ Represents the transition from one vertex to another. It is whatever action is n
 This section will talk about the modeling rules using yEd with ***GraphWalker***. 
 
 ### Start vertex
-![alt text](https://raw.githubusercontent.com/GraphWalker/graphwalker-project/master/graphwalker-cli/doc/img/StartVertex.png "Start Vertex")
+![alt text](/content/images/StartVertex.png "Start Vertex")
 
 * The **Start** vertex is not mandatory.
 * If used, there must be 1 (and only 1) vertex with the name: **Start** in a model.
@@ -67,7 +67,7 @@ Actions are a mechanisms only associated to edges. This is java script code that
 The purpose of the action code, is to serve as data to the guards.
 
 #### Example
-![alt text](https://raw.githubusercontent.com/GraphWalker/graphwalker-project/master/graphwalker-cli/doc/img/GuardAndActions.png "Guards and Actions")
+![alt text](/content/images/GuardAndActions.png "Guards and Actions")
 
 This example illustrates how actions and guards work.
 
@@ -112,10 +112,10 @@ When flatting models, several models are merged into on single model, which then
 #### SHARED:SOME_NAME
 The mechanism that controls the jumping between the models is the keyword SHARED. Let's look at an example. Consider these 4 models:
 
-![alt text](https://raw.githubusercontent.com/GraphWalker/graphwalker-project/master/graphwalker-cli/doc/img/ModelA.png "Model A")
-![alt text](https://raw.githubusercontent.com/GraphWalker/graphwalker-project/master/graphwalker-cli/doc/img/ModelB.png "Model B")
-![alt text](https://raw.githubusercontent.com/GraphWalker/graphwalker-project/master/graphwalker-cli/doc/img/ModelC.png "Model C")
-![alt text](https://raw.githubusercontent.com/GraphWalker/graphwalker-project/master/graphwalker-cli/doc/img/ModelD.png "Model D")
+![alt text](/content/images/ModelA.png "Model A")
+![alt text](/content/images/ModelB.png "Model B")
+![alt text](/content/images/ModelC.png "Model C")
+![alt text](/content/images/ModelD.png "Model D")
 
 All models are loaded into ***GraphWalker***, and the first model (Model A) is where the path generation is started. Using graphwalker-cli, the command line could look something like this:
 
