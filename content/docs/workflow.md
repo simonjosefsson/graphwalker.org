@@ -13,8 +13,9 @@ This article will describe a normal workflow when designing for test automation 
 
 ### Pre-install the requirements
 
- * Install the Java JDK, 7 or 8 will do
- * Install the [Maven](http://maven.apache.org/download.cgi)
+ * Install Java JDK, 7 or 8 will do
+ * Install [Maven](http://maven.apache.org/download.cgi)
+ * Download [graphwalker-cli](http://graphwalker.org/archive/graphwalker.jar)
 
 ## Test idea and design
 The purpose of the test design is to describe the **expected behavior of the system under test**. The way it works, is that you in a finite state diagram [model], express an action as a directed edge. An edge is also known as an arrow, arc or transition. The edge points to a vertex. Also known as a node or state, where the results or the consequence of the previous action is verified/asserted.
@@ -140,7 +141,7 @@ Using Maven and the complete model above create all the stub code needed.
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.myorg</groupId>
-    <version>3.2.0</version>
+    <version>3.2.1</version>
     <artifactId>example</artifactId>
     <name>GraphWalker Test</name>
 
@@ -166,17 +167,10 @@ Using Maven and the complete model above create all the stub code needed.
                 <!-- Bind goals to the default lifecycle -->
                 <executions>
                     <execution>
-                        <id>generate-test-sources</id>
-                        <phase>generate-test-sources</phase>
+                        <id>generate-sources</id>
+                        <phase>generate-sources</phase>
                         <goals>
-                            <goal>generate-test-sources</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>test</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>test</goal>
+                            <goal>generate-sources</goal>
                         </goals>
                     </execution>
                 </executions>
