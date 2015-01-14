@@ -11,7 +11,12 @@ Description: The download page for GraphWalker
   Have a look at the [documentation](/docs/command_line_syntax)
 
 ### Source code
- * [GraphWalker at GitHub](https://github.com/GraphWalker)
+ * [All GraphWalker projects at GitHub](https://github.com/GraphWalker)
+  
+#### Source code for the released project
+ * [graphwalker-project at GitHub](https://github.com/GraphWalker/graphwalker-project)
+ 
+#### The individual modules
  * [cli - The command line interface for GraphWalker](https://github.com/GraphWalker/graphwalker-project/tree/master/graphwalker-cli)
  * [core -The core functionality](https://github.com/GraphWalker/graphwalker-project/tree/master/graphwalker-core)
  * [dsl - The text parsing logic](https://github.com/GraphWalker/graphwalker-project/tree/master/graphwalker-dsl)
