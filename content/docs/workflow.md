@@ -223,32 +223,33 @@ The last command will automatically generate an interface of the model in Login.
 
 If you check your folder, it willl contain following files and folders:
 ~~~
-%> find .
+%> tree
 .
-./pom.xml
-./target
-./target/generated-sources
-./target/generated-sources/graphwalker
-./target/generated-sources/graphwalker/org
-./target/generated-sources/graphwalker/org/myorg
-./target/generated-sources/graphwalker/org/myorg/testautomation
-./target/generated-sources/graphwalker/org/myorg/testautomation/Login.java
-./src
-./src/main
-./src/main/java
-./src/main/java/org
-./src/main/java/org/myorg
-./src/main/java/org/myorg/testautomation
-./src/main/resources
-./src/main/resources/org
-./src/main/resources/org/myorg
-./src/main/resources/org/myorg/testautomation
-./src/main/resources/org/myorg/testautomation/Login.graphml
-./src/test
-./src/test/java
-./src/test/java/org
-./src/test/java/org/myorg
-./src/test/java/org/myorg/testautomation
+├── pom.xml
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── org
+│   │   │       └── myorg
+│   │   │           └── testautomation
+│   │   └── resources
+│   │       └── org
+│   │           └── myorg
+│   │               └── testautomation
+│   │                   └── Login.graphml
+│   └── test
+│       └── java
+│           └── org
+│               └── myorg
+│                   └── testautomation
+│                       └── SimpleTest.java
+└── target
+    └── generated-sources
+        └── graphwalker
+            └── org
+                └── myorg
+                    └── testautomation
+                        └── Login.java
 ~~~
 
 Your job is now to implement that interface, which means filling in the missing code into the methods in the class that implements the interface. First you have to find the right tool for the job. Dependeing on you System Under Test(SUT) , it could typically be::
