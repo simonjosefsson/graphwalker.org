@@ -366,7 +366,7 @@ public class SimpleTest extends ExecutionContext implements Login {
 ~~~
 
 
-## Running the test : PLEASE WE HAVE A BUG HERE WHICH NEEDS TO BE FIXED! ETA FOR FIX JANUARY 14
+## Running the test
 
 The test above is implemented using the JUnit framework, so you invoke it running:
 ~~~
