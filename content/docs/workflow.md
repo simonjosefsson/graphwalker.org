@@ -242,7 +242,6 @@ If you check your folder, it willl contain following files and folders:
 │           └── org
 │               └── myorg
 │                   └── testautomation
-│                       └── SimpleTest.java
 └── target
     └── generated-sources
         └── graphwalker
