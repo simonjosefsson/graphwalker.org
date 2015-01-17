@@ -14,9 +14,17 @@ Start GraphWalker from the command line using the standalone jar, using the **on
 java -jar graphwalker-3.2.1.jar -d ALL online -p 8887
 ~~~
 Starts the WebSocker server, with full debug logging, on localhost, listing on port 8887<br>
-Download it from [Latest dev standalone CLI - branch 3.2.0](/archive/graphwalker-cli-3.2.0-SNAPSHOT.jar)
+Download it from [Latest dev standalone CLI - branch 3.2.1](/archive/graphwalker-cli-3.2.1.jar)
 
-A client may connect to ws://hostname:port. See [Java WebSocket Client example](https://github.com/GraphWalker/graphwalker-example/tree/3.2.0/java-websocket) and the last section in this article.
+A client may connect to ws://localhost:8887. Try [Echo Test](http://www.websocket.org/echo.html).
+
+ * Input `ws://localhost:8887` into **Location:**
+ * Click the **Connect** button
+ * Copy and paste the Example from http://graphwalker.org/docs/json_graph into **Message:**
+ * Click the **Send** button
+ * Copy and paste the `{"type": "start"}` and click the **Send** button
+ * Copy and paste the `{"type": "hasNext"}` and click the **Send**  button
+ * Copy and paste the `{"type": "getNext" }` and click the **Send**button
 
 When connected, a GraphWalker machine will be created on the server, which will serve this client only.
 When disconnected, the server will destroy the machine.
