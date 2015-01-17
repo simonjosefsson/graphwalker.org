@@ -3,7 +3,7 @@ Title: GraphWalker WebSopcket API
 Description: This description will go in the meta description tag
 */
 
-# GraphWalker WebSopcket API (from version 3.2.0)
+# GraphWalker WebSopcket API
 
 The GraphWalker WebSocket Server enables a user to launch and interact with GraphWalker and inplement your tests in a very dynamic way. Any programming language that has an implementation of WebSocket will be able to use this feature.
 
@@ -11,7 +11,7 @@ The GraphWalker WebSocket Server enables a user to launch and interact with Grap
 ## Establishing a connection to the GraphWalker WebSocket Server
 Start GraphWalker from the command line using the standalone jar, using the **online** command.
 ~~~
-java -jar graphwalker-3.2.0-SNAPSHOT.jar -d ALL online -p 8887
+java -jar graphwalker-3.2.1.jar -d ALL online -p 8887
 ~~~
 Starts the WebSocker server, with full debug logging, on localhost, listing on port 8887<br>
 Download it from [Latest dev standalone CLI - branch 3.2.0](/archive/graphwalker-cli-3.2.0-SNAPSHOT.jar)
