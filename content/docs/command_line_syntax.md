@@ -72,7 +72,7 @@ Use the model ***model.graphml***, and generate a path using the random path gen
 
 Online testing means that a model-based testing tool connects directly to an SUT and tests it dynamically. GraphWalker will start as a WebSocket (default) or a HTTP REST server.
 
-[Read more about the difference between using GraphWalker as a RESTFUL or a WebSocket service](/docs/restfuls_vs_websocket)
+[Read more about the difference between using GraphWalker as a RESTFUL or a WebSocket service](/docs/restful_vs_websocket)
 
 
 
