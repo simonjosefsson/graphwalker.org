@@ -86,24 +86,24 @@ Default is true
 The model, as a graphml file followed by generator with stop condition.<br>
 This options can occur multiple times.<br>
 
-* --port, -p
+* --port, -p<br>
 Sets the port of the service
 Default is 8887
 
-* --service, -s
+* --service, -s<br>
 Selects which kind of service to start. Either WEBSOCKET [default],
 or RESTFUL
 Default is WEBSOCKET
 
-* --start-element, -e
+* --start-element, -e<br>
 Sets the starting element in the [first] model.
 Default is <empty string>
 
-* --unvisited, -u
+* --unvisited, -u<br>
 Will also print the remaining unvisited elements in the model.
 Default is false
 
-* --verbose, -o
+* --verbose, -o<br>
 Will print more details
 Default is false
 
