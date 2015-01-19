@@ -70,24 +70,10 @@ Use the model ***model.graphml***, and generate a path using the random path gen
 
 ## online
 
-Online testing means that a model-based testing tool connects directly to an SUT and tests it dynamically. GraphWalker will start as a HTTP REST server. The path to the API is:
-~~~
-http://HOSTNAME:9999/graphwalker/METHOD_NAME
-~~~
+Online testing means that a model-based testing tool connects directly to an SUT and tests it dynamically. GraphWalker will start as a WebSocket (default) or a HTTP REST server.
 
-### Method names
+[Read more about the difference between using GraphWalker as a RESTFUL or a WebSocket service](/docs/restfuls_vs_websocket)
 
-* ***/hasNext***<br>
-Will return true if as long as there are unfulfilled stop condition(s). If all stop conditions are met (fulfilled), *hasNext* will return false.
-
-* ***/getNext***<br>
-Will return the next edge or vertex to walk.
-
-* ***/getData?key=VARIABLE_NAME***<br>
-Will return the value of the variable *VARIABLE_NAME*.
-
-* ***/setData?script=JAVA_SCRIPT_ACTION***<br>
-Will run the *JAVA_SCRIPT_ACTION*. If successful, the call will return "Ok", else an error message. On 1 statement per call.
 
 
 ### Options
@@ -99,19 +85,28 @@ Default is true
 * --model, -m <br>
 The model, as a graphml file followed by generator with stop condition.<br>
 This options can occur multiple times.<br>
-[Read more about path generators and stop conditions](/docs/path_generators_and_stop_conditions)
 
-* --restful, -r<br>
-Starts as a Restful API service.<br>
-Default is true.
+* --port, -p
+Sets the port of the service
+Default is 8887
 
-* --unvisited, -u<br>
-Will also print the remaining unvisited elements in the model.<br>
-Default is false.
+* --service, -s
+Selects which kind of service to start. Either WEBSOCKET [default],
+or RESTFUL
+Default is WEBSOCKET
 
-* --verbose, -o<br>
-Will print more details<br>
-Default is false.
+* --start-element, -e
+Sets the starting element in the [first] model.
+Default is <empty string>
+
+* --unvisited, -u
+Will also print the remaining unvisited elements in the model.
+Default is false
+
+* --verbose, -o
+Will print more details
+Default is false
+
 
 ## methods
 
