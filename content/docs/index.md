@@ -23,6 +23,7 @@ Description: This description will go in the meta description tag
 
 ### Articles
 * [Combining different stop conditions](/docs/combining_different_stop_conditions)
+* [Best practices](/docs/bestpractices.md)
 
 ### Java Doc API
 * [All Java Doc API documentation](/archive/apidocs/index.html)
