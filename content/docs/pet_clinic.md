@@ -28,7 +28,12 @@ mvn graphwalker:test
 ```
 
 ## The test
-The tests is designed using [yEd](http://www.yworks.com/en/products/yfiles/yed/). The test design is divided between 5 models. The models can be fiund in folder:
+The tests is designed using [yEd](http://www.yworks.com/en/products/yfiles/yed/). The test design is divided between 5 models. 
+
+What you would expect when running the test, is that Firefox will open, and the test will start navigating around the Pet Clinic web site.
+
+## The Models - The Test Design
+The models can be fiund in folder:
 ```
 src/main/resources/com/company/
 ```
