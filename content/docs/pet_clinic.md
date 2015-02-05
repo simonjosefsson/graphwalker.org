@@ -36,22 +36,22 @@ When opened in yEd, the models will look like this:
 
 ### The main model: PetClinic
 
-<img src="https://raw.githubusercontent.com/GraphWalker/graphwalker-example/master/java-petclinic/src/main/resources/com/company/PetClinicSharedState.png" alt="PetClinic" align="left">
+<img src="https://raw.githubusercontent.com/GraphWalker/graphwalker-example/master/java-petclinic/src/main/resources/com/company/PetClinicSharedState.png" alt="PetClinic">
 
 ### The Find Owners model
 
-<img src="https://raw.githubusercontent.com/GraphWalker/graphwalker-example/master/java-petclinic/src/main/resources/com/company/FindOwnersSharedState.png" alt="FindOwners" align="left">
+<img src="https://raw.githubusercontent.com/GraphWalker/graphwalker-example/master/java-petclinic/src/main/resources/com/company/FindOwnersSharedState.png" alt="FindOwners">
 
 ### The Veterinariens model
 
-<img src="https://raw.githubusercontent.com/GraphWalker/graphwalker-example/master/java-petclinic/src/main/resources/com/company/VeterinariensSharedState.png" alt="Veterinariens" align="left">
+<img src="https://raw.githubusercontent.com/GraphWalker/graphwalker-example/master/java-petclinic/src/main/resources/com/company/VeterinariensSharedState.png" alt="Veterinariens">
 
 ### The Owner Information model
 
-<img src="https://raw.githubusercontent.com/GraphWalker/graphwalker-example/master/java-petclinic/src/main/resources/com/company/OwnerInformationSharedState.png" alt="OwnerInformation" align="left">
+<img src="https://raw.githubusercontent.com/GraphWalker/graphwalker-example/master/java-petclinic/src/main/resources/com/company/OwnerInformationSharedState.png" alt="OwnerInformation">
 
 ### The New Owner model
 
-<img src="https://raw.githubusercontent.com/GraphWalker/graphwalker-example/master/java-petclinic/src/main/resources/com/company/NewOwnerSharedState.png" alt="NewOwner" align="left">
+<img src="https://raw.githubusercontent.com/GraphWalker/graphwalker-example/master/java-petclinic/src/main/resources/com/company/NewOwnerSharedState.png" alt="NewOwner">
 
 
