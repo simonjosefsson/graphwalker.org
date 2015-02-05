@@ -28,4 +28,30 @@ mvn graphwalker:test
 ```
 
 ## The test
-The tests is designed using [yEd](http://www.yworks.com/en/products/yfiles/yed/). The test design is divided between 5 models.
+The tests is designed using [yEd](http://www.yworks.com/en/products/yfiles/yed/). The test design is divided between 5 models. The models can be fiund in folder:
+```
+src/main/resources/com/company/
+```
+When opened in yEd, the models will look like this:
+
+### The main model: PetClinic
+
+<img src="https://raw.githubusercontent.com/GraphWalker/graphwalker-example/master/java-petclinic/src/main/resources/com/company/PetClinicSharedState.png" alt="PetClinic" align="left">
+
+### The Find Owners model
+
+<img src="https://raw.githubusercontent.com/GraphWalker/graphwalker-example/master/java-petclinic/src/main/resources/com/company/FindOwnersSharedState.png" alt="FindOwners" align="left">
+
+### The Veterinariens model
+
+<img src="https://raw.githubusercontent.com/GraphWalker/graphwalker-example/master/java-petclinic/src/main/resources/com/company/VeterinariensSharedState.png" alt="Veterinariens" align="left">
+
+### The Owner Information model
+
+<img src="https://raw.githubusercontent.com/GraphWalker/graphwalker-example/master/java-petclinic/src/main/resources/com/company/OwnerInformationSharedState.png" alt="OwnerInformation" align="left">
+
+### The New Owner model
+
+<img src="https://raw.githubusercontent.com/GraphWalker/graphwalker-example/master/java-petclinic/src/main/resources/com/company/NewOwnerSharedState.png" alt="NewOwner" align="left">
+
+
