@@ -14,32 +14,32 @@ This is an example on how to implement a test using the [PetClinic Sample Applic
 * Firefox installed
 
 ## Get and start the PetClinic Sample Application
-```
+~~~
 git clone https://github.com/SpringSource/spring-petclinic.git
 cd spring-petclinic
 mvn tomcat7:run
-```
+~~~
 **If you are usning Java8** please see this issue: [fix for JasperException when java8 is used #51](https://github.com/spring-projects/spring-petclinic/pull/51/files), apply the fix.
 
 ## Get and run the GraphWalker test example
-```
+~~~
 git clone https://github.com/GraphWalker/graphwalker-example.git
 cd graphwalker-example/java-petclinic
 mvn graphwalker:test
-```
+~~~
 
 ## The test
 The tests is designed using [yEd](http://www.yworks.com/en/products/yfiles/yed/). The test design is divided between 5 models. 
 
 What you would expect when running the test, is that Firefox will open, and the test will start navigating around the Pet Clinic web site.
 
-<img src="/content/images/petClinic.png" alt="The Pet Clinic">
+![alt text](/content/images/petClinic.png "The Pet Clinic opened in Firefox")
 
 ## The Models - The Test Design
 The models can be found in folder:
-```
+~~~
 src/main/resources/com/company/
-```
+~~~
 When opened in yEd, the models will look like this:
 
 ### The main model: PetClinic
