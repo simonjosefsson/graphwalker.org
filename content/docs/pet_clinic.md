@@ -32,8 +32,10 @@ The tests is designed using [yEd](http://www.yworks.com/en/products/yfiles/yed/)
 
 What you would expect when running the test, is that Firefox will open, and the test will start navigating around the Pet Clinic web site.
 
+<img src="/content/images/petClinic.png" alt="The Pet Clinic">
+
 ## The Models - The Test Design
-The models can be fiund in folder:
+The models can be found in folder:
 ```
 src/main/resources/com/company/
 ```
