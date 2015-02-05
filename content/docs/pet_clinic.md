@@ -33,7 +33,8 @@ The tests is designed using [yEd](http://www.yworks.com/en/products/yfiles/yed/)
 
 What you would expect when running the test, is that Firefox will open, and the test will start navigating around the Pet Clinic web site.
 
-![alt text](/content/images/petClinic.png "The Pet Clinic opened in Firefox")
+<iframe width="420" height="315" src="https://www.youtube.com/embed/idSgWX6rGdk" frameborder="0" allowfullscreen></iframe>
+
 
 ## The Models - The Test Design
 The models can be found in folder:
