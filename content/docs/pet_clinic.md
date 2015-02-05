@@ -16,6 +16,7 @@ This is an example on how to implement a test using the [PetClinic Sample Applic
 ## Get and start the PetClinic Sample Application
 ```
 git clone https://github.com/SpringSource/spring-petclinic.git
+cd spring-petclinic
 mvn tomcat7:run
 ```
 **If you are usning Java8** please see this issue: [fix for JasperException when java8 is used #51](https://github.com/spring-projects/spring-petclinic/pull/51/files), apply the fix.
