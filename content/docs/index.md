@@ -7,7 +7,7 @@ Description: This description will go in the meta description tag
 
 ### Startup guides
 * [How to use GraphWalker](/docs/workflow)
-* [Pet Clinic example](/docs/pet_clinic.md)
+* [Pet Clinic example](/docs/pet_clinic)
 * [How to create a small test](/docs/howto_create_a_small_test)
 * [Creating a boilerplate project using maven archetype](/docs/maven_archetype)
 
