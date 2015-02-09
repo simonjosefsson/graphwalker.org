@@ -33,7 +33,16 @@ The tests is designed using [yEd](http://www.yworks.com/en/products/yfiles/yed/)
 
 What you would expect when running the test, is that Firefox will open, and the test will start navigating around the Pet Clinic web site.
 
+The video below runs the PetClinic test using maven from the command line:
+~~~
+mvn graphwalker:test
+~~~
+
 <iframe width="420" height="315" src="https://www.youtube.com/embed/idSgWX6rGdk" frameborder="0" allowfullscreen></iframe>
+
+Another video that uses [Graphstream](http://graphstream-project.org/) to visualize the test as it runs. Graphstream is hooking into the [GraphWalker Observer](https://github.com/GraphWalker/graphwalker-example/blob/master/java-petclinic/src/main/java/com/company/observers/GraphStreamObserver.java). The test is launched from IntelliJ.
+
+<iframe width="420" height="315" src="https://www.youtube.com/embed/Ufe4XbaBe1o" frameborder="0" allowfullscreen></iframe>
 
 
 ## The Models - The Test Design
