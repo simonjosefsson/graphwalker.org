@@ -40,6 +40,10 @@ Version 3.2.1 is the latest release. In your maven project. Add this to your pom
 <span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>dependency</span><span style='color:#a65700; '>></span>
 </pre>
 
+## Quick feedback?
+
+Join <a href="https://groups.google.com/forum/?utm_medium=email&utm_source=footer#!forum/graphwalker-3"> GraphWalker 3 group</a> and ask us any questions regarding GraphWalker 3.
+
 ## License
 
 GraphWalker is a <a href="http://opensource.org/licenses/MIT">MIT lincensed</a> <a href="http://opensource.org">Open Soure project</a>.
