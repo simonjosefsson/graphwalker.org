@@ -56,6 +56,13 @@ The stop criteria is a named edge. When, during execution, the edge is reached, 
 
 The stop criteria is a time, representing the number of seconds that the test generator is allowed to execute.
 
+Please note, that the time is compared with the execution for the whole test. For example, this means, that if you have:
+- 2 models
+- with common shared states
+- both having ```time_duration``` stop condition set to 60 seconds each
+
+both models will stop executing after 60 seconds. Even if one of the models haven't been visited.
+
 ### never
 
 This special stop condition will never halt the generator.
