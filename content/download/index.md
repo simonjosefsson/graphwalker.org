@@ -8,7 +8,7 @@ Description: The download page for GraphWalker
 ### Standalone jar
 * [Latest stable standalone CLI - 3.2.0](/archive/graphwalker.jar)<br>
 * [Latest dev standalone CLI - 3.3.0-SNAPSHOT](/archive/graphwalker-cli-3.3.0-SNAPSHOT.jar)<br>
-  Have a look at the [documentation](/docs/command_line_syntax)
+  Have a look at the [documentation](/docs)
 
 ### Source code
  * [All GraphWalker projects at GitHub](https://github.com/GraphWalker)
