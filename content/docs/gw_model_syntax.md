@@ -12,7 +12,7 @@ This describes the syntax for the ***GraphWalker***, and what the rules are when
 
 The objective of the model, is to express the expected behavior of the system under test. To do so, we use a [directed graph], in which a vertex (or a node) represents some desired state, and the edges (arcs, arrows, transitions) represents whatever actions we need to do in order to achieve that desired state.
 
-For example, let's take a web site that requires authentication before we can access the sites content. Designing a test, using a directed graph, it might look like this:
+For example, let's take a web site that requires authentication before we can access the sites content. Designing a test, using a directed graph, might look like this:
 
 ![alt text](/content/images/example1.jpg "Simple example 1")
 
@@ -23,9 +23,9 @@ A vertex represents an expected state that we want to examine. In any implementi
 * ***GraphWalker*** does not care what colors or shape a vertex has.
 
 ### Edge
-Represents the transition from one vertex to another. It is whatever action is need to be made in order to reach the next state. It could be selecting some menu choice, clicking a button, or making a REST API call.
+Represents the transition from one vertex to another. It is whatever action is needed to be made in order to reach the next state. It could be selecting some menu choice, clicking a button, or making a REST API call.
 
-* ***GraphWalker*** only accepts on-way directed edges (arrows). 
+* ***GraphWalker*** only accepts one-way directed edges (arrows). 
 * ***GraphWalker*** does not care what colors or thickness an edge has.
 
 ## The Rules
@@ -37,7 +37,7 @@ This section will talk about the modeling rules using yEd with ***GraphWalker***
 * The **Start** vertex is not mandatory.
 * If used, there must be 1 (and only 1) vertex with the name: **Start** in a model.
 * There can only be 1 out-edge from the Start vertex.
-* The **Start** vertex will no be included in any generated path.
+* The **Start** vertex will not be included in any generated path.
  
 ### Name of a vertex or edge
 The name is the first word, on the first line in a label for an edge or vertex.
@@ -51,7 +51,7 @@ A label is all the text associated to and edge or a vertex.
 </figure>
 
 ### Guards - Only for an edge
-Guards are a mechanism only associated to edges. Their role are the same as an if-statement, and makes an edge eligible or not for being walked.
+Guards are a mechanism only associated with edges. Their roles are the same as an if-statement, and makes an edge eligible or not for being walked.
 
 The guard is a conditional expression enclosed between square brackets:
 ~~~
@@ -60,7 +60,7 @@ The guard is a conditional expression enclosed between square brackets:
 The above means that if the attribute loggedIn equals to true, the edge is accessible.
 
 ### Action - Only for an edge
-Actions are a mechanisms only associated to edges. This is java script code that we want to execute in the model. It's placed after a forward slash. Each statement must be ended with a semicolon.
+Action is a mechanism only associated to edges. This is java script code that we want to execute in the model. It's placed after a forward slash. Each statement must be ended with a semicolon.
 ~~~
 /loggedIn=false; rememberMe=true;
 ~~~
@@ -104,10 +104,10 @@ INIT is allowed in more vertices than just one.
 
 ### Multiple models
 
-***GraphWalker*** can work with several models in one session. It means that when generating a path, ***GraphWalker*** can choose to jump out of one model into another one. This is very handy when separating different functionality into several models. For example. Lets say you have a system that you want to test, and you would need to log in to do that. Then it might make sense to create a single model handling the log in functionality, and other models to handle whatever else you want to test. The log in model would then be reused for ever other test scenario.
+***GraphWalker*** can work with several models in one session. It means that when generating a path, ***GraphWalker*** can choose to jump out of one model into another one. This is very handy when separating different functionality into several models. For example. Let's say you have a system that you want to test, and you would need to log in to do that. Then it might make sense to create a single model handling the log in functionality, and other models to handle whatever else you want to test. The log in model would then be reused for ever other test scenario.
 
 #### It's not the same thing as flattening
-When flatting models, several models are merged into on single model, which then is being traversed by ***GraphWalker***. This is not the case here. ***GraphWalker*** is executing every model in it's own context. The scope of the data in the models are not shared between them.
+When flatting models, several models are merged into one single model, which then is being traversed by ***GraphWalker***. This is not the case here. ***GraphWalker*** is executing every model in its own context. The scope of the data in the models are not shared between them.
 
 #### SHARED:SOME_NAME
 The mechanism that controls the jumping between the models is the keyword SHARED. Let's look at an example. Consider these 4 models:
