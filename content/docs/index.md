@@ -37,3 +37,8 @@ Description: This description will go in the meta description tag
 
 #### Missing anything?
 If there's documentation you miss, if existing docs are wrong, or the english is bad or has typos, please let us know! Tell us by submitting an issue to [https://github.com/GraphWalker/graphwalker.org/issues](https://github.com/GraphWalker/graphwalker.org/issues)
+
+Or even better, [create a pull request](https://help.github.com/articles/creating-a-pull-request)! Making a pull request means that reviewing the changes and discussing them gets so much more simpler.
+* The doc is here: https://github.com/GraphWalker/graphwalker.org/tree/master/content
+* The doc is stored in .md files. 
+* The format of the doc is [markdown](http://en.wikipedia.org/wiki/Markdown)
