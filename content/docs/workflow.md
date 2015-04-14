@@ -147,6 +147,8 @@ Using Maven and the complete model above create all the stub code needed.
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Set graphwalker.version below to the version you wish to use. We recommend the latest stable version -->
+        <graphwalker.version>3.2.0</graphwalker.version>
     </properties>
 
     <build>
@@ -163,7 +165,7 @@ Using Maven and the complete model above create all the stub code needed.
             <plugin>
                 <groupId>org.graphwalker</groupId>
                 <artifactId>graphwalker-maven-plugin</artifactId>
-                <version>${project.version}</version>
+                <version>${graphwalker.version}</version>
                 <!-- Bind goals to the default lifecycle -->
                 <executions>
                     <execution>
@@ -182,17 +184,17 @@ Using Maven and the complete model above create all the stub code needed.
         <dependency>
             <groupId>org.graphwalker</groupId>
             <artifactId>graphwalker-core</artifactId>
-            <version>${project.version}</version>
+            <version>${graphwalker.version}</version>
         </dependency>
         <dependency>
             <groupId>org.graphwalker</groupId>
             <artifactId>graphwalker-java</artifactId>
-            <version>${project.version}</version>
+            <version>${graphwalker.version}</version>
         </dependency>
         <dependency>
             <groupId>org.graphwalker</groupId>
             <artifactId>graphwalker-maven-plugin</artifactId>
-            <version>${project.version}</version>
+            <version>${graphwalker.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
