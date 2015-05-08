@@ -23,14 +23,6 @@ Move into the myProject folder, and test the project:
 ~~~
 %> cd myProject
 ~~~
-Open **pom.xml** and change: (It's a bug, which will be fixed in next release.)
-~~~
-<graphwalker.version>3.2.0-SNAPSHOT</graphwalker.version>
-~~~
-to
-~~~
-<graphwalker.version>3.2.1</graphwalker.version>
-~~~
 Now, run a test:
 ~~~
 %> mvn graphwalker:test
